@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Gad Bulangongo Mikudi</title>
+    <style>
+        :root {
+            --dark-blue: #0a192f;
+            --light-blue: #112240;
+            --orange: #ff7a00;
+            --white: #e6f1ff;
+            --light-gray: #ccd6f6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            padding: 30px 0;
+            background-color: var(--light-blue);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--orange);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--orange);
+        }
+        
+        /* Sections générales */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 32px;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--orange);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--orange);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(to right, rgba(10, 25, 47, 0.9), rgba(17, 34, 64, 0.8));
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero h2 {
+            font-size: 24px;
+            color: var(--orange);
+            margin-bottom: 30px;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            color: var(--light-gray);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--orange);
+            color: var(--dark-blue);
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--white);
+            transform: translateY(-3px);
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--light-gray);
+        }
+        
+        .about-image {
+            text-align: center;
+        }
+        
+        /* Style pour la photo de profil */
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--orange);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .personal-info {
+            text-align: center;
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-category {
+            background-color: var(--light-blue);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-category h3 {
+            color: var(--orange);
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+        
+        .skill-item {
+            margin-bottom: 15px;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .skill-level {
+            height: 100%;
+            background-color: var(--orange);
+            border-radius: 10px;
+        }
+        
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--orange);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: var(--light-blue);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: var(--orange);
+            margin-bottom: 10px;
+        }
+        
+        .timeline-title {
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+        
+        .timeline-desc {
+            color: var(--light-gray);
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: var(--light-blue);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-info {
+            padding: 20px;
+        }
+        
+        .project-title {
+            color: var(--orange);
+            margin-bottom: 10px;
+        }
+        
+        .project-desc {
+            color: var(--light-gray);
+            margin-bottom: 15px;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .project-tag {
+            background-color: rgba(255, 107, 107, 0.2);
+            color: var(--orange);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            background-color: var(--light-blue);
+            border: none;
+            border-radius: 4px;
+            color: var(--white);
+        }
+        
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--light-blue);
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--dark-blue);
+            margin: 0 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: var(--white);
+        }
+        
+        .social-link:hover {
+            background-color: var(--orange);
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero h2 {
+                font-size: 20px;
+            }
+            
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">GBM</div>
+                <ul class="nav-links">
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#skills">Compétences</a></li>
+                    <li><a href="#experience">Expérience</a></li>
+                    <li><a href="#projects">Projets</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Gad Bulangongo Mikudi</h1>
+                <h2>Ingénieur Réseau & Administrateur Système</h2>
+                <p>Diplômé en Réseau Informatique, passionné par les technologies de communication et les infrastructures IT. Formé au niveau CCNA, je maîtrise les concepts fondamentaux du réseau ainsi que les bonnes pratiques en matière de configuration, de sécurité et de gestion des infrastructures Cisco.</p>
+                <a href="#contact" class="btn">Me contacter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">À propos de moi</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p><strong>BULANGONGO MIKUDI Gad</strong>, diplômé en Réseau Informatique, passionné par les technologies de communication et les infrastructures IT. Formé au niveau <strong>CCNA</strong>, je maîtrise les concepts fondamentaux du réseau, ainsi que les bonnes pratiques en matière de configuration, de sécurité et de gestion des infrastructures Cisco.</p>
+                    <p>En parallèle, je possède une <strong>solide expérience en administration système</strong> sur <strong>Windows Server 2019 et 2022</strong>, notamment dans la gestion des utilisateurs, la mise en œuvre des stratégies de groupe (GPO), les services de fichiers (DFS), Active Directory, et les services à distance (RDS).</p>
+                    <p>Compétent en <strong>diagnostic réseau</strong>, <strong>configuration système et sécurisation des environnements</strong>, je suis motivé à intégrer une équipe dynamique pour renforcer mes acquis techniques, participer à des projets concrets et contribuer activement à la performance opérationnelle des systèmes informatiques.</p>
+                </div>
+                <div class="about-image">
+                    <div class="profile-photo">
+                        <!-- Photo temporaire en base64 - à remplacer par votre photo -->
+                        <img src="photo-profil.jpg" alt="Photo de Gad Bulangongo Mikudi">
+                    </div>
+                    <div class="personal-info">
+                        <h3>Informations personnelles</h3>
+                        <p><strong>Nationalité:</strong> Congolaise (République démocratique du Congo)</p>
+                        <p><strong>Téléphone:</strong> (+243) 0841029246</p>
+                        <p><strong>Email:</strong> gadbulangongo11@gmail.com</p>
+                        <p><strong>Adresse:</strong> 30 Avenue Mukoko, Quartier Musey, Commune Ngaliema, KINSHASA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Mes compétences</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Réseaux</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Réseau Informatique niveau CCNA</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Équipements d'interconnexion</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Configuration VLAN, routage, DHCP</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 88%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Systèmes</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Windows Server 2019/2022</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Linux (Ubuntu, Debian)</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Active Directory, GPO, DFS</span>
+                            <span>82%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 82%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Sécurité & Autres</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Sécurité réseau (ACL, VPN)</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Contrôle d'accès & Surveillance</span>
+                            <span>78%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 78%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Microsoft Office</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Mon expérience professionnelle</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">05/2024 - 11/2024</div>
+                        <h3 class="timeline-title">Ingénieur Réseau - RADIOCOM</h3>
+                        <p class="timeline-desc">
+                            Analyse des besoins réseau, installation et configuration des équipements réseau (Cisco, HP),
+                            gestion des adresses IP, tests et validation réseau, maintenance et support, documentation technique.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">03/2023 - Présent</div>
+                        <h3 class="timeline-title">Ingénieur Réseau Indépendant - GIAD FUCHS ASSOCIATED</h3>
+                        <p class="timeline-desc">
+                            Aide aux résidents pour résoudre des problèmes de connexion Internet et réseaux,
+                            configuration de routeurs, dépannage, optimisation des réseaux domestiques.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">01/2021 - 11/2022</div>
+                        <h3 class="timeline-title">Administrateur Gérant - IMPREMIERIE ET BUREAUTIQUE RK CONCEPT</h3>
+                        <p class="timeline-desc">
+                            Gestion administrative, planification et coordination, suivi budgétaire,
+                            gestion des ressources humaines, communication interne, résolution de problèmes.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">01/2020 - 12/2020</div>
+                        <h3 class="timeline-title">Assistant Administratif et Informaticien - ONG Association des Conducteurs Poids Lourds du Congo</h3>
+                        <p class="timeline-desc">
+                            Accueil des visiteurs, support à l'équipe dans la planification des projets,
+                            rédaction de documents administratifs, organisation d'événements.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Mes projets</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3 class="project-title">Réseau pour l'Union Européenne à Kinshasa</h3>
+                        <p class="project-desc">Installation et configuration d'un réseau informatique aux niveaux 5,6,7 de l'Immeuble TOWER pour le nouveau bureau de l'Union Européenne à Kinshasa.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Réseau</span>
+                            <span class="project-tag">Câblage</span>
+                            <span class="project-tag">WiFi</span>
+                            <span class="project-tag">Sécurité</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3 class="project-title">Mise en place d'un réseau local</h3>
+                        <p class="project-desc">Conception et configuration d'un réseau local (LAN) pour un projet au Centre de Formation, en utilisant des routeurs et commutateurs Cisco.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Cisco</span>
+                            <span class="project-tag">LAN</span>
+                            <span class="project-tag">OSI</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3 class="project-title">Laboratoire personnel</h3>
+                        <p class="project-desc">Création d'un laboratoire à domicile pour expérimenter avec différents équipements réseau et configurations.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Lab</span>
+                            <span class="project-tag">Expérimentation</span>
+                            <span class="project-tag">R&D</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contactez-moi</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>gadbulangongo11@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <h3>Téléphone</h3>
+                            <p>(+243) 0841029246</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h3>Adresse</h3>
+                            <p>30 Avenue Mukoko, Quartier Musey, Commune Ngaliema, KINSHASA, RDC</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">💼</div>
+                        <div>
+                            <h3>LinkedIn</h3>
+                            <p><a href="https://www.linkedin.com/in/gad-bulangongo-347153310" style="color: var(--orange); text-decoration: none;">linkedin.com/in/gad-bulangongo-347153310</a></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="emailForm">
+                    <input type="text" id="name" placeholder="Votre nom" required>
+                    <input type="email" id="email" placeholder="Votre email" required>
+                    <input type="text" id="subject" placeholder="Sujet" required>
+                    <textarea id="message" placeholder="Votre message" required></textarea>
+                    <button type="submit" class="btn">Envoyer le message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/gad-bulangongo-347153310" class="social-link" target="_blank">in</a>
+                <a href="https://wa.me/243841029246" class="social-link" target="_blank">💬</a>
+                <a href="mailto:gadbulangongo11@gmail.com" class="social-link">✉</a>
+            </div>
+            <p>&copy; 2025 Gad Bulangongo Mikudi. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form submission handling - Envoi d'email
+        const contactForm = document.getElementById('emailForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Récupération des valeurs du formulaire
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                
+                // Construction du lien mailto
+                const mailtoLink = `mailto:gadbulangongo11@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent('Nom: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message)}`;
+                
+                // Ouverture du client de messagerie par défaut
+                window.location.href = mailtoLink;
+                
+                // Réinitialisation du formulaire
+                this.reset();
+            });
+        }
+    </script>
+</body>
+</html>
