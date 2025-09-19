@@ -148,7 +148,7 @@
             background: 
                 linear-gradient(to right, rgba(10, 25, 47, 0.5), rgba(17, 34, 64, 0.5)),
                 /* Image optimisée pour le web */
-                url('Arrière.HEIC') center/cover no-repeat;
+                url('Arrière.jpg') center/cover no-repeat;
             position: relative;
         }
         
@@ -312,19 +312,22 @@
         .experience-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 20px;
+            flex-direction: column;
         }
         
         .experience-date {
             font-weight: bold;
             color: var(--orange);
+            margin-top: 10px;
         }
         
         .experience-title {
             color: var(--white);
             font-size: 24px;
             margin-bottom: 10px;
+            word-break: break-word;
         }
         
         .experience-desc {
@@ -395,6 +398,7 @@
         .project-title {
             color: var(--orange);
             margin-bottom: 10px;
+            word-break: break-word;
         }
         
         .project-desc {
