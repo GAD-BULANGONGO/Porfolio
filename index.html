@@ -24,6 +24,7 @@
             background-color: var(--dark-blue);
             color: var(--white);
             line-height: 1.6;
+            overflow-x: hidden;
         }
         
         .container {
@@ -31,6 +32,45 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+        
+        /* Navigation entre pages */
+        .page-navigation {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .page-btn {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: var(--light-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .page-btn:hover, .page-btn.active {
+            background-color: var(--orange);
+            color: var(--dark-blue);
+        }
+        
+        /* Pages */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         
         /* Header */
@@ -76,7 +116,7 @@
         }
         
         /* Sections générales */
-        section {
+        .section {
             padding: 80px 0;
         }
         
@@ -104,10 +144,10 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            /* Ajout de l'image de fond avec opacité réduite */
+            /* Image de fond avec opacité réduite à 50% */
             background: 
-                linear-gradient(to right, rgba(10, 25, 47, 0.85), rgba(17, 34, 64, 0.85)),
-                /* REMPLACEZ CETTE URL PAR LE CHEMIN VERS VOTRE IMAGE */
+                linear-gradient(to right, rgba(10, 25, 47, 0.5), rgba(17, 34, 64, 0.5)),
+                /* Image optimisée pour le web */
                 url('Arrière.HEIC') center/cover no-repeat;
             position: relative;
         }
@@ -121,18 +161,22 @@
         .hero h1 {
             font-size: 48px;
             margin-bottom: 20px;
+            color: var(--white);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
         
         .hero h2 {
             font-size: 24px;
             color: var(--orange);
             margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         }
         
         .hero p {
             font-size: 18px;
             margin-bottom: 40px;
-            color: var(--light-gray);
+            color: var(--white);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         }
         
         .btn {
@@ -153,27 +197,23 @@
             transform: translateY(-3px);
         }
         
-        /* About Section */
-        .about-content {
+        /* About Section - Nouvelle structure avec deux ancres */
+        .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
-            align-items: center;
+            margin-bottom: 60px;
         }
         
-        .about-text p {
-            margin-bottom: 20px;
-            color: var(--light-gray);
-        }
-        
-        .about-image {
+        .about-photo {
             text-align: center;
         }
         
         /* Style pour la photo de profil - MODIFIÉ POUR ÊTRE CARRÉE */
         .profile-photo {
-            width: 200px;
-            height: 200px;
+            width: 100%;
+            max-width: 300px;
+            height: 300px;
             margin: 0 auto 20px;
             /* Changé de border-radius: 50% à 10px pour un effet carré avec coins légèrement arrondis */
             border-radius: 10px;
@@ -189,7 +229,32 @@
         }
         
         .personal-info {
+            text-align: left;
+            padding: 20px;
+            background-color: var(--light-blue);
+            border-radius: 10px;
+        }
+        
+        .personal-info h3 {
+            color: var(--orange);
+            margin-bottom: 20px;
             text-align: center;
+        }
+        
+        .personal-info p {
+            margin-bottom: 10px;
+            color: var(--light-gray);
+        }
+        
+        .about-text {
+            padding: 20px;
+            background-color: var(--light-blue);
+            border-radius: 10px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--light-gray);
         }
         
         /* Skills Section */
@@ -235,59 +300,73 @@
             border-radius: 10px;
         }
         
-        /* Experience Section */
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 6px;
-            background-color: var(--orange);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -3px;
-        }
-        
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-        }
-        
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
-        
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-        
-        .timeline-content {
-            padding: 20px;
+        /* Experience Section - Nouvelle structure avec ancres et galeries */
+        .experience-item {
+            margin-bottom: 60px;
+            padding: 30px;
             background-color: var(--light-blue);
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
-        .timeline-date {
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .experience-date {
             font-weight: bold;
             color: var(--orange);
-            margin-bottom: 10px;
         }
         
-        .timeline-title {
-            margin-bottom: 10px;
+        .experience-title {
             color: var(--white);
+            font-size: 24px;
+            margin-bottom: 10px;
         }
         
-        .timeline-desc {
+        .experience-desc {
             color: var(--light-gray);
+            margin-bottom: 20px;
+        }
+        
+        /* Galerie de photos - 4 CARRÉS */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 1 / 1; /* Carré parfait */
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-placeholder {
+            color: var(--light-gray);
+            font-style: italic;
+            text-align: center;
+            padding: 20px;
         }
         
         /* Projects Section */
@@ -421,23 +500,9 @@
                 display: none;
             }
             
-            .about-content,
+            .about-grid,
             .contact-container {
                 grid-template-columns: 1fr;
-            }
-            
-            .timeline::after {
-                left: 31px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .timeline-item:nth-child(even) {
-                left: 0;
             }
             
             .hero h1 {
@@ -449,8 +514,12 @@
             }
             
             .profile-photo {
-                width: 150px;
-                height: 150px;
+                width: 200px;
+                height: 200px;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -462,43 +531,59 @@
             <nav>
                 <div class="logo">GBM</div>
                 <ul class="nav-links">
-                    <li><a href="#about">À propos</a></li>
-                    <li><a href="#skills">Compétences</a></li>
-                    <li><a href="#experience">Expérience</a></li>
-                    <li><a href="#projects">Projets</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" onclick="showPage('accueil')">Accueil</a></li>
+                    <li><a href="#" onclick="showPage('about')">À propos</a></li>
+                    <li><a href="#" onclick="showPage('skills')">Compétences</a></li>
+                    <li><a href="#" onclick="showPage('experience')">Expérience</a></li>
+                    <li><a href="#" onclick="showPage('projects')">Projets</a></li>
+                    <li><a href="#" onclick="showPage('contact')">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Gad Bulangongo Mikudi</h1>
-                <h2>Ingénieur Réseau & Administrateur Système</h2>
-                <p>Diplômé en Réseau Informatique, passionné par les technologies de communication et les infrastructures IT. Formé au niveau CCNA, je maîtrise les concepts fondamentaux du réseau ainsi que les bonnes pratiques en matière de configuration, de sécurité et de gestion des infrastructures Cisco.</p>
-                <a href="#contact" class="btn">Me contacter</a>
-            </div>
+    <!-- Navigation entre pages -->
+    <div class="container">
+        <div class="page-navigation">
+            <button class="page-btn active" onclick="showPage('accueil')">Accueil</button>
+            <button class="page-btn" onclick="showPage('about')">À propos</button>
+            <button class="page-btn" onclick="showPage('skills')">Compétences</button>
+            <button class="page-btn" onclick="showPage('experience')">Expérience</button>
+            <button class="page-btn" onclick="showPage('projects')">Projets</button>
+            <button class="page-btn" onclick="showPage('contact')">Contact</button>
         </div>
-    </section>
+    </div>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title">À propos de moi</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p><strong>BULANGONGO MIKUDI Gad</strong>, diplômé en Réseau Informatique, passionné par les technologies de communication et les infrastructures IT. Formé au niveau <strong>CCNA</strong>, je maîtrise les concepts fondamentaux du réseau, ainsi que les bonnes pratiques en matière de configuration, de sécurité et de gestion des infrastructures Cisco.</p>
-                    <p>En parallèle, je possède une <strong>solide expérience en administration système</strong> sur <strong>Windows Server 2019 et 2022</strong>, notamment dans la gestion des utilisateurs, la mise en œuvre des stratégies de groupe (GPO), les services de fichiers (DFS), Active Directory, et les services à distance (RDS).</p>
-                    <p>Compétent en <strong>diagnostic réseau</strong>, <strong>configuration système et sécurisation des environnements</strong>, je suis motivé à intégrer une équipe dynamique pour renforcer mes acquis techniques, participer à des projets concrets et contribuer activement à la performance opérationnelle des systèmes informatiques.</p>
+    <!-- Page Accueil -->
+    <div id="accueil" class="page active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Gad Bulangongo Mikudi</h1>
+                    <h2>Ingénieur Réseau & Administrateur Système</h2>
+                    <p>Diplômé en Réseau Informatique, passionné par les technologies de communication et les infrastructures IT. Formé au niveau CCNA, je maîtrise les concepts fondamentaux du réseau ainsi que les bonnes pratiques en matière de configuration, de sécurité et de gestion des infrastructures Cisco.</p>
+                    <a href="#" onclick="showPage('contact')" class="btn">Me contacter</a>
                 </div>
-                <div class="about-image">
-                    <div class="profile-photo">
-                        <!-- Photo temporaire en base64 - à remplacer par votre photo -->
-                        <img src="photo-profil.jpg" alt="Photo de Gad Bulangongo Mikudi">
+            </div>
+        </section>
+    </div>
+
+    <!-- Page À propos -->
+    <div id="about" class="page">
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">À propos de moi</h2>
+                
+                <!-- Première ancre: Photo et informations personnelles -->
+                <div class="about-grid">
+                    <div class="about-photo">
+                        <div class="profile-photo">
+                            <!-- Photo temporaire en base64 - à remplacer par votre photo -->
+                            <img src="photo-profil.JPG" alt="Photo de Gad Bulangongo Mikudi">
+                        </div>
                     </div>
+                    
                     <div class="personal-info">
                         <h3>Informations personnelles</h3>
                         <p><strong>Nationalité:</strong> Congolaise (République démocratique du Congo)</p>
@@ -507,257 +592,318 @@
                         <p><strong>Adresse:</strong> 30 Avenue Mukoko, Quartier Musey, Commune Ngaliema, KINSHASA</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-        <div class="container">
-            <h2 class="section-title">Mes compétences</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3>Réseaux</h3>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Réseau Informatique niveau CCNA</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 90%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Équipements d'interconnexion</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 85%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Configuration VLAN, routage, DHCP</span>
-                            <span>88%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 88%;"></div>
-                        </div>
-                    </div>
-                </div>
                 
-                <div class="skill-category">
-                    <h3>Systèmes</h3>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Windows Server 2019/2022</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 85%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Linux (Debian)</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 75%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Active Directory, GPO, DFS</span>
-                            <span>82%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 82%;"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Sécurité & Autres</h3>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Sécurité réseau (ACL, VPN)</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 80%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Contrôle d'accès & Surveillance</span>
-                            <span>78%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 78%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Microsoft Office</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-level" style="width: 90%;"></div>
-                        </div>
-                    </div>
+                <!-- Deuxième ancre: Informations sur le profil -->
+                <div class="about-text">
+                    <p><strong>BULANGONGO MIKUDI Gad</strong>, diplômé en Réseau Informatique, passionné par les technologies de communication et les infrastructures IT. Formé au niveau <strong>CCNA</strong>, je maîtrise les concepts fondamentaux du réseau, ainsi que les bonnes pratiques en matière de configuration, de sécurité et de gestion des infrastructures Cisco.</p>
+                    <p>En parallèle, je possède une <strong>solide expérience en administration système</strong> sur <strong>Windows Server 2019 et 2022</strong>, notamment dans la gestion des utilisateurs, la mise en œuvre des stratégies de groupe (GPO), les services de fichiers (DFS), Active Directory, et les services à distance (RDS).</p>
+                    <p>Compétent en <strong>diagnostic réseau</strong>, <strong>configuration système et sécurisation des environnements</strong>, je suis motivé à intégrer une équipe dynamique pour renforcer mes acquis techniques, participer à des projets concrets et contribuer activement à la performance opérationnelle des systèmes informatiques.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <!-- Experience Section -->
-    <section id="experience">
-        <div class="container">
-            <h2 class="section-title">Mon expérience professionnelle</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">05/2024 - 02/2025</div>
-                        <h3 class="timeline-title">Ingénieur Réseau - RADIOCOM</h3>
-                        <p class="timeline-desc">
-                            Analyse des besoins réseau, installation et configuration des équipements réseau (Cisco, HP),
-                            gestion des adresses IP, tests et validation réseau, maintenance et support, documentation technique.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">03/2023 - Présent</div>
-                        <h3 class="timeline-title">Ingénieur Réseau Indépendant - GIAD FUCHS ASSOCIATED</h3>
-                        <p class="timeline-desc">
-                            Aide aux résidents pour résoudre des problèmes de connexion Internet et réseaux,
-                            configuration de routeurs, dépannage, optimisation des réseaux domestiques et Installation des caméras de surveillance.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">01/2021 - 11/2022</div>
-                        <h3 class="timeline-title">Administrateur Gérant - IMPREMIERIE ET BUREAUTIQUE RK CONCEPT</h3>
-                        <p class="timeline-desc">
-                            Gestion administrative, planification et coordination, suivi budgétaire,
-                            gestion des ressources humaines, communication interne, résolution de problèmes.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">01/2020 - 12/2020</div>
-                        <h3 class="timeline-title">Assistant Administratif et Informaticien - ONG Association des Conducteurs Poids Lourds du Congo</h3>
-                        <p class="timeline-desc">
-                            Accueil des visiteurs, support à l'équipe dans la planification des projets,
-                            rédaction de documents administratifs, organisation d'événements.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title">Mes projets</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-info">
-                        <h3 class="project-title">Réseau pour l'Union Européenne à Kinshasa</h3>
-                        <p class="project-desc">Installation et configuration d'un réseau informatique aux niveaux 5,6,7 de l'Immeuble TOWER pour le nouveau bureau de l'Union Européenne à Kinshasa.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Réseau</span>
-                            <span class="project-tag">Câblage</span>
-                            <span class="project-tag">WiFi</span>
-                            <span class="project-tag">Sécurité</span>
+    <!-- Page Compétences -->
+    <div id="skills" class="page">
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Mes compétences</h2>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3>Réseaux</h3>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Réseau Informatique niveau CCNA</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 90%;"></div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-info">
-                        <h3 class="project-title">Mise en place d'un réseau local</h3>
-                        <p class="project-desc">Conception et configuration d'un réseau local (LAN) pour un projet au Centre de Formation, en utilisant des routeurs et commutateurs Cisco.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Cisco</span>
-                            <span class="project-tag">LAN</span>
-                            <span class="project-tag">OSI</span>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Équipements d'interconnexion</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 85%;"></div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-info">
-                        <h3 class="project-title">Laboratoire personnel</h3>
-                        <p class="project-desc">Création d'un laboratoire à domicile pour expérimenter avec différents équipements réseau et configurations.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Lab</span>
-                            <span class="project-tag">Expérimentation</span>
-                            <span class="project-tag">R&D</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">Contactez-moi</h2>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">📧</div>
-                        <div>
-                            <h3>Email</h3>
-                            <p>gadbulangongo11@gmail.com</p>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Configuration VLAN, routage, DHCP</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 88%;"></div>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="contact-item">
-                        <div class="contact-icon">📱</div>
-                        <div>
-                            <h3>Téléphone</h3>
-                            <p>(+243) 0841029246</p>
+                    <div class="skill-category">
+                        <h3>Systèmes</h3>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Windows Server 2019/2022</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Linux (Ubuntu, Debian)</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Active Directory, GPO, DFS</span>
+                                <span>82%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 82%;"></div>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div>
-                            <h3>Adresse</h3>
-                            <p>30 Avenue Mukoko, Quartier Musey, Commune Ngaliema, KINSHASA, RDC</p>
+                    <div class="skill-category">
+                        <h3>Sécurité & Autres</h3>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Sécurité réseau (ACL, VPN)</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 80%;"></div>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">💼</div>
-                        <div>
-                            <h3>LinkedIn</h3>
-                            <p><a href="https://www.linkedin.com/in/gad-bulangongo-347153310" style="color: var(--orange); text-decoration: none;">linkedin.com/in/gad-bulangongo-347153310</a></p>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Contrôle d'accès & Surveillance</span>
+                                <span>78%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 78%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Microsoft Office</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 90%;"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-                <form class="contact-form" id="emailForm">
-                    <input type="text" id="name" placeholder="Votre nom" required>
-                    <input type="email" id="email" placeholder="Votre email" required>
-                    <input type="text" id="subject" placeholder="Sujet" required>
-                    <textarea id="message" placeholder="Votre message" required></textarea>
-                    <button type="submit" class="btn">Envoyer le message</button>
-                </form>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
+
+    <!-- Page Expérience -->
+    <div id="experience" class="page">
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Mon expérience professionnelle</h2>
+                
+                <!-- Expérience RADIOCOM avec galerie -->
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Ingénieur Réseau - RADIOCOM</h3>
+                        <div class="experience-date">05/2024 - 02/2025</div>
+                    </div>
+                    <p class="experience-desc">
+                        Analyse des besoins réseau, installation et configuration des équipements réseau (Cisco, HP),
+                        gestion des adresses IP, tests et validation réseau, maintenance et support, documentation technique.
+                    </p>
+                    
+                    <!-- ============================ -->
+                    <!-- GALERIE PHOTOS POUR RADIOCOM -->
+                    <!-- ============================ -->
+                    <h4>Quelques réalisations :</h4>
+                    <div class="gallery">
+                        <!-- REMPLACEZ CES ELEMENTS PAR VOS PHOTOS -->
+                        <!-- FORMATS ACCEPTÉS: JPG, PNG, WEBP (ÉVITEZ HEIC) -->
+                        <!-- TAILLE OPTIMALE: 600x600 pixels -->
+                        <div class="gallery-item">
+                            <img src="Infra.jpg" alt="Installation équipement réseau">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="Dépannage.jpg" alt="Configuration serveur">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="DépaR.jpg" alt="Tests de validation réseau">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="Test.jpg" alt="Documentation technique">
+                        </div>
+                    </div>
+                   <!-- <p class="gallery-instructions"><small>Pour ajouter vos propres photos, remplacez les chemins d'accès "src" des images ci-dessus par les chemins vers vos photos.</small></p> -->
+                </div>
+                
+                <!-- Expérience GIAD FUCHS avec galerie -->
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Ingénieur Réseau Indépendant - GIAD FUCHS ASSOCIATED</h3>
+                        <div class="experience-date">03/2023 - Présent</div>
+                    </div>
+                    <p class="experience-desc">
+                        Aide aux résidents pour résoudre des problèmes de connexion Internet et réseaux,
+                        configuration de routeurs, dépannage, optimisation des réseaux domestiques et Installation des caméras de surveillance.
+                    </p>
+                    
+                    <!-- ============================== -->
+                    <!-- GALERIE PHOTOS POUR GIAD FUCHS -->
+                    <!-- ============================== -->
+                    <h4>Quelques réalisations :</h4>
+                    <div class="gallery">
+                        <!-- REMPLACEZ CES ELEMENTS PAR VOS PHOTOS -->
+                        <div class="gallery-item">
+                            <img src="camera.jpg" alt="Installation caméra de surveillance">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="DépanF.jpg" alt="Configuration réseau domestique">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="Optimisation.jpg" alt="Dépannage réseau">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="DOC.jpg" alt="Optimisation réseau">
+                        </div>
+                    </div>
+                    <!--<p class="gallery-instructions"><small>Pour ajouter vos propres photos, remplacez les chemins d'accès "src" des images ci-dessus par les chemins vers vos photos.</small></p> -->
+                </div>
+                
+                <!-- Autres expériences -->
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Administrateur Gérant - IMPREMIERIE ET BUREAUTIQUE RK CONCEPT</h3>
+                        <div class="experience-date">01/2021 - 11/2022</div>
+                    </div>
+                    <p class="experience-desc">
+                        Gestion administrative, planification et coordination, suivi budgétaire,
+                        gestion des ressources humaines, communication interne, résolution de problèmes.
+                    </p>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Assistant Administratif et Informaticien - ONG Association des Conducteurs Poids Lourds du Congo</h3>
+                        <div class="experience-date">01/2020 - 12/2020</div>
+                    </div>
+                    <p class="experience-desc">
+                        Accueil des visiteurs, support à l'équipe dans la planification des projets,
+                        rédaction de documents administratifs, organisation d'événements.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Page Projets -->
+    <div id="projects" class="page">
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Mes projets</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-info">
+                            <h3 class="project-title">Réseau pour l'Union Européenne à Kinshasa</h3>
+                            <p class="project-desc">Installation et configuration d'un réseau informatique aux niveaux 5,6,7 de l'Immeuble TOWER pour le nouveau bureau de l'Union Européenne à Kinshasa.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Réseau</span>
+                                <span class="project-tag">Câblage</span>
+                                <span class="project-tag">WiFi</span>
+                                <span class="project-tag">Sécurité</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-info">
+                            <h3 class="project-title">Mise en place d'un réseau local</h3>
+                            <p class="project-desc">Conception et configuration d'un réseau local (LAN) pour un projet au Centre de Formation, en utilisant des routeurs et commutateurs Cisco.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Cisco</span>
+                                <span class="project-tag">LAN</span>
+                                <span class="project-tag">OSI</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-info">
+                            <h3 class="project-title">Laboratoire personnel</h3>
+                            <p class="project-desc">Création d'un laboratoire à domicile pour expérimenter avec différents équipements réseau et configurations.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Lab</span>
+                                <span class="project-tag">Expérimentation</span>
+                                <span class="project-tag">R&D</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Page Contact -->
+    <div id="contact" class="page">
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Contactez-moi</h2>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div>
+                                <h3>Email</h3>
+                                <p>gadbulangongo11@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div>
+                                <h3>Téléphone</h3>
+                                <p>(+243) 0841029246</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <h3>Adresse</h3>
+                                <p>30 Avenue Mukoko, Quartier Musey, Commune Ngaliema, KINSHASA, RDC</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">💼</div>
+                            <div>
+                                <h3>LinkedIn</h3>
+                                <p><a href="https://www.linkedin.com/in/gad-bulangongo-347153310" style="color: var(--orange); text-decoration: none;">linkedin.com/in/gad-bulangongo-347153310</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form class="contact-form" id="emailForm">
+                        <input type="text" id="name" placeholder="Votre nom" required>
+                        <input type="email" id="email" placeholder="Votre email" required>
+                        <input type="text" id="subject" placeholder="Sujet" required>
+                        <textarea id="message" placeholder="Votre message" required></textarea>
+                        <button type="submit" class="btn">Envoyer le message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -772,23 +918,27 @@
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
+        // Fonction pour afficher une page et masquer les autres
+        function showPage(pageId) {
+            // Masquer toutes les pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
             });
-        });
+            
+            // Afficher la page demandée
+            document.getElementById(pageId).classList.add('active');
+            
+            // Mettre à jour les boutons de navigation
+            document.querySelectorAll('.page-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Activer le bouton correspondant
+            document.querySelector(`.page-btn[onclick="showPage('${pageId}')"]`).classList.add('active');
+            
+            // Scroll vers le haut
+            window.scrollTo(0, 0);
+        }
         
         // Form submission handling - Envoi d'email
         const contactForm = document.getElementById('emailForm');
