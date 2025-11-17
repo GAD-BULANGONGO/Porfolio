@@ -34,30 +34,6 @@
             padding: 0 20px;
         }
         
-        /* Navigation entre pages */
-        .page-navigation {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-        
-        .page-btn {
-            padding: 10px 20px;
-            margin: 5px;
-            background-color: var(--light-blue);
-            color: var(--white);
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .page-btn:hover, .page-btn.active {
-            background-color: var(--orange);
-            color: var(--dark-blue);
-        }
-        
         /* Pages */
         .page {
             display: none;
@@ -75,7 +51,7 @@
         
         /* Header */
         header {
-            padding: 30px 0;
+            padding: 20px 0;
             background-color: var(--light-blue);
             position: sticky;
             top: 0;
@@ -109,10 +85,84 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
+            padding: 10px 15px;
+            border-radius: 4px;
         }
         
         .nav-links a:hover {
             color: var(--orange);
+            background-color: rgba(255, 122, 0, 0.1);
+        }
+        
+        /* Menu Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--white);
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+        
+        /* Menu Mobile */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background-color: var(--light-blue);
+            padding: 20px 0;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .mobile-nav-links {
+            list-style: none;
+            text-align: center;
+        }
+        
+        .mobile-nav-links li {
+            margin: 15px 0;
+        }
+        
+        .mobile-nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 10px 20px;
+            display: block;
+            transition: all 0.3s;
+            border-radius: 4px;
+        }
+        
+        .mobile-nav-links a:hover {
+            color: var(--orange);
+            background-color: rgba(255, 122, 0, 0.1);
         }
         
         /* Sections générales */
@@ -144,10 +194,8 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            /* Image de fond avec opacité réduite à 50% */
             background: 
                 linear-gradient(to right, rgba(10, 25, 47, 0.5), rgba(17, 34, 64, 0.5)),
-                /* Image optimisée pour le web */
                 url('Arrière.jpg') center/cover no-repeat;
             position: relative;
         }
@@ -197,7 +245,7 @@
             transform: translateY(-3px);
         }
         
-        /* About Section - Nouvelle structure avec deux ancres */
+        /* About Section */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -209,13 +257,11 @@
             text-align: center;
         }
         
-        /* Style pour la photo de profil - MODIFIÉ POUR ÊTRE CARRÉE */
         .profile-photo {
             width: 100%;
             max-width: 300px;
             height: 300px;
             margin: 0 auto 20px;
-            /* Changé de border-radius: 50% à 10px pour un effet carré avec coins légèrement arrondis */
             border-radius: 10px;
             overflow: hidden;
             border: 4px solid var(--orange);
@@ -277,30 +323,25 @@
             font-size: 22px;
         }
         
-        .skill-item {
-            margin-bottom: 15px;
+        .skill-list {
+            list-style-type: none;
         }
         
-        .skill-name {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
+        .skill-list li {
+            margin-bottom: 8px;
+            color: var(--light-gray);
+            position: relative;
+            padding-left: 15px;
         }
         
-        .skill-bar {
-            height: 10px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
+        .skill-list li:before {
+            content: "•";
+            color: var(--orange);
+            position: absolute;
+            left: 0;
         }
         
-        .skill-level {
-            height: 100%;
-            background-color: var(--orange);
-            border-radius: 10px;
-        }
-        
-        /* Experience Section - Nouvelle structure avec ancres et galeries */
+        /* Experience Section */
         .experience-item {
             margin-bottom: 60px;
             padding: 30px;
@@ -335,7 +376,7 @@
             margin-bottom: 20px;
         }
         
-        /* Galerie de photos - 4 CARRÉS */
+        /* Galerie de photos */
         .gallery {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -347,7 +388,7 @@
             position: relative;
             border-radius: 8px;
             overflow: hidden;
-            aspect-ratio: 1 / 1; /* Carré parfait */
+            aspect-ratio: 1 / 1;
             background-color: rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
@@ -363,13 +404,6 @@
         
         .gallery-item:hover img {
             transform: scale(1.05);
-        }
-        
-        .gallery-placeholder {
-            color: var(--light-gray);
-            font-style: italic;
-            text-align: center;
-            padding: 20px;
         }
         
         /* Projects Section */
@@ -466,6 +500,68 @@
             resize: vertical;
         }
         
+        /* Formations Section */
+        .formations-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .formation-card {
+            background-color: var(--light-blue);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .formation-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .formation-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .formation-title {
+            color: var(--orange);
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        
+        .formation-institution {
+            color: var(--light-gray);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        .formation-date {
+            color: var(--orange);
+            font-weight: bold;
+            font-size: 14px;
+            white-space: nowrap;
+            margin-left: 15px;
+        }
+        
+        .formation-desc {
+            color: var(--light-gray);
+            margin-bottom: 15px;
+        }
+        
+        .formation-badge {
+            display: inline-block;
+            background-color: rgba(255, 122, 0, 0.2);
+            color: var(--orange);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
         /* Footer */
         footer {
             background-color: var(--light-blue);
@@ -504,6 +600,10 @@
                 display: none;
             }
             
+            .hamburger {
+                display: flex;
+            }
+            
             .about-grid,
             .contact-container {
                 grid-template-columns: 1fr;
@@ -525,6 +625,43 @@
             .gallery {
                 grid-template-columns: 1fr;
             }
+            
+            .formation-header {
+                flex-direction: column;
+            }
+            
+            .formation-date {
+                margin-left: 0;
+                margin-top: 5px;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .hero h2 {
+                font-size: 18px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .skills-container,
+            .projects-grid,
+            .formations-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -539,23 +676,30 @@
                     <li><a href="#" onclick="showPage('about')">À propos</a></li>
                     <li><a href="#" onclick="showPage('skills')">Compétences</a></li>
                     <li><a href="#" onclick="showPage('experience')">Expérience</a></li>
+                    <li><a href="#" onclick="showPage('formations')">Formations</a></li>
                     <li><a href="#" onclick="showPage('projects')">Projets</a></li>
                     <li><a href="#" onclick="showPage('contact')">Contact</a></li>
                 </ul>
+                <div class="hamburger" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </nav>
         </div>
     </header>
 
-    <!-- Navigation entre pages -->
-    <div class="container">
-        <div class="page-navigation">
-            <button class="page-btn active" onclick="showPage('accueil')">Accueil</button>
-            <button class="page-btn" onclick="showPage('about')">À propos</button>
-            <button class="page-btn" onclick="showPage('skills')">Compétences</button>
-            <button class="page-btn" onclick="showPage('experience')">Expérience</button>
-            <button class="page-btn" onclick="showPage('projects')">Projets</button>
-            <button class="page-btn" onclick="showPage('contact')">Contact</button>
-        </div>
+    <!-- Menu Mobile -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-links">
+            <li><a href="#" onclick="showPage('accueil'); toggleMobileMenu()">Accueil</a></li>
+            <li><a href="#" onclick="showPage('about'); toggleMobileMenu()">À propos</a></li>
+            <li><a href="#" onclick="showPage('skills'); toggleMobileMenu()">Compétences</a></li>
+            <li><a href="#" onclick="showPage('experience'); toggleMobileMenu()">Expérience</a></li>
+            <li><a href="#" onclick="showPage('formations'); toggleMobileMenu()">Formations</a></li>
+            <li><a href="#" onclick="showPage('projects'); toggleMobileMenu()">Projets</a></li>
+            <li><a href="#" onclick="showPage('contact'); toggleMobileMenu()">Contact</a></li>
+        </ul>
     </div>
 
     <!-- Page Accueil -->
@@ -565,8 +709,8 @@
             <div class="container">
                 <div class="hero-content">
                     <h1>Gad Bulangongo Mikudi</h1>
-                    <h2>Ingénieur Réseau & Administrateur Système</h2>
-                    <p>Professionnel en Réseau Informatique, passionné par les technologies de communication et les infrastructures IT. Formé au niveau CCNA, je maîtrise les concepts fondamentaux du réseau ainsi que les bonnes pratiques en matière de configuration, de sécurité et de gestion des infrastructures Cisco.</p>
+                    <h2>Analyst Junior Cybersecurity | IT Support Specialist | Ingénieur Réseau | Administrateur Système (Windows server & Linux)</h2>
+                    <p>Professionnel polyvalent en réseaux, systèmes et cyber sécurité, certifié Cisco CCNA, Google IT Support et Google Cyber Security. Expérimenté en configuration d'équipements Cisco, administration de serveurs Windows et Linux (desktop & server), ainsi qu'en support technique utilisateurs (niveau 1 & 2) et sécurisation des infrastructures.</p>
                     <a href="#" onclick="showPage('contact')" class="btn">Me contacter</a>
                 </div>
             </div>
@@ -583,7 +727,6 @@
                 <div class="about-grid">
                     <div class="about-photo">
                         <div class="profile-photo">
-                            <!-- Photo temporaire en base64 - à remplacer par votre photo -->
                             <img src="profil.jpg" alt="Photo de Gad Bulangongo Mikudi">
                         </div>
                     </div>
@@ -599,10 +742,8 @@
                 
                 <!-- Deuxième ancre: Informations sur le profil -->
                 <div class="about-text">
-                    <p><strong>BULANGONGO MIKUDI Gad</strong>, passionné par les technologies de communication et les infrastructures IT. Formé au niveau <strong>CCNA</strong>, je maîtrise les concepts fondamentaux du réseau ainsi que les bonnes pratiques en matière de configuration, de sécurité et de gestion des infrastructures Cisco.</p>
-                    <p>Je possède une <strong>solide expérience en administration système</strong> sur <strong>Windows Server 2019 et 2022</strong>, avec une expertise dans la gestion des utilisateurs, la mise en œuvre des stratégies de groupe (GPO), les services de fichiers (DFS), Active Directory, et les services à distance (RDS).</p>
-                    <p>Mon profil s'enrichit d'une <strong>expertise Linux</strong> couvrant l'administration de serveurs Debian (installation et configuration de serveurs web) et les environnements Ubuntu Desktop.</p>
-                    <p>Compétent en <strong>diagnostic réseau</strong>, <strong>configuration système et sécurisation des environnements</strong>, je suis motivé à intégrer une équipe dynamique pour renforcer mes acquis techniques, participer à des projets concrets et contribuer activement à la performance opérationnelle des systèmes informatiques.</p>
+                    <p>Professionnel polyvalent en réseaux, systèmes et cyber sécurité, certifié Cisco CCNA, Google IT Support et Google Cyber Security. Expérimenté en configuration d'équipements Cisco, administration de serveurs Windows et Linux (desktop & server), ainsi qu'en support technique utilisateurs (niveau 1 & 2) et sécurisation des infrastructures.</p>
+                    <p>Compétent dans l'analyse des risques, la détection des menaces (SIEM, IDS), et l'automatisation des tâches de sécurité avec Python. Rigoureux, dynamique et passionné par les technologies réseau, système et sécurité, avec une forte capacité d'adaptation aux environnements techniques exigeants.</p>
                 </div>
             </div>
         </section>
@@ -615,109 +756,98 @@
                 <h2 class="section-title">Mes compétences</h2>
                 <div class="skills-container">
                     <div class="skill-category">
+                        <h3>Sécurité</h3>
+                        <ul class="skill-list">
+                            <li>Firewall</li>
+                            <li>Sécurité Windows</li>
+                            <li>Sécurité Réseau</li>
+                            <li>SIEM</li>
+                            <li>IDS</li>
+                            <li>Automatisation Python</li>
+                            <li>SQL</li>
+                            <li>Analyse des risques et vulnérabilités</li>
+                            <li>Gestion des incidents</li>
+                            <li>Contrôle d'accès</li>
+                            <li>Caméras HikVision</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Support IT</h3>
+                        <ul class="skill-list">
+                            <li>Assistance utilisateurs N1 & N2</li>
+                            <li>Dépannage hardware/software</li>
+                            <li>Gestion des tickets</li>
+                            <li>Maintenance préventive</li>
+                            <li>Google Workspace</li>
+                            <li>Microsoft 365</li>
+                            <li>Documentation technique</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
                         <h3>Réseaux</h3>
-                        <div class="skill-item">
-                            <div class="skill-name">
-                                <span>Réseau Informatique niveau CCNA</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="width: 90%;"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">
-                                <span>Équipements d'interconnexion</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="width: 85%;"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">
-                                <span>Configuration VLAN, routage, DHCP</span>
-                                <span>88%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="width: 88%;"></div>
-                            </div>
-                        </div>
+                        <ul class="skill-list">
+                            <li>Cisco IOS</li>
+                            <li>Routing</li>
+                            <li>Switching</li>
+                            <li>VLAN</li>
+                            <li>ACL</li>
+                            <li>NAT</li>
+                            <li>VPN</li>
+                            <li>DHCP</li>
+                            <li>DNS</li>
+                            <li>IPv4/IPv6</li>
+                            <li>WiFi (ARUBA)</li>
+                        </ul>
                     </div>
                     
                     <div class="skill-category">
                         <h3>Systèmes</h3>
-                        <div class="skill-item">
-                            <div class="skill-name">
-                                <span>Windows Server 2019/2022</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="width: 85%;"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">
-                                <span>Linux (Ubuntu, Debian)</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="width: 75%;"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">
-                                <span>Active Directory, GPO, DFS</span>
-                                <span>82%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="width: 82%;"></div>
-                            </div>
-                        </div>
+                        <ul class="skill-list">
+                            <li>Windows Server 2019/2022 (Active Directory, Group Policy, DFS, RDS, DHCP, DNS)</li>
+                            <li>Virtualisation (Hyper-V, VMware)</li>
+                            <li>Scripts PowerShell</li>
+                        </ul>
                     </div>
                     
                     <div class="skill-category">
-                        <h3>Sécurité & Autres</h3>
-                        <div class="skill-item">
-                            <div class="skill-name">
-                                <span>Sécurité réseau (ACL, VPN)</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="width: 80%;"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">
-                                <span>Contrôle d'accès & Surveillance</span>
-                                <span>78%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="width: 78%;"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">
-                                <span>Microsoft Office</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="width: 90%;"></div>
-                            </div>
-                        </div>
+                        <h3>Linux</h3>
+                        <ul class="skill-list">
+                            <li>Administration Ubuntu et Debian Server (installation et configuration de serveurs web)</li>
+                            <li>Ubuntu Desktop</li>
+                            <li>Compétences en ligne de commande et gestion des systèmes</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Outils collaboratifs</h3>
+                        <ul class="skill-list">
+                            <li>Microsoft Office 365</li>
+                            <li>Gmail</li>
+                            <li>Google Drive</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Langues</h3>
+                        <ul class="skill-list">
+                            <li>Français (C1)</li>
+                            <li>Anglais (technique de base)</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
     </div>
 
+    <!-- Les autres pages (Expérience, Formations, Projets, Contact) restent identiques -->
     <!-- Page Expérience -->
     <div id="experience" class="page">
         <section class="section">
             <div class="container">
                 <h2 class="section-title">Mon expérience professionnelle</h2>
                 
-                <!-- Expérience RADIOCOM avec galerie -->
                 <div class="experience-item">
                     <div class="experience-header">
                         <h3 class="experience-title">Ingénieur Réseau - RADIOCOM</h3>
@@ -728,14 +858,8 @@
                         gestion des adresses IP, tests et validation réseau, maintenance et support, documentation technique.
                     </p>
                     
-                    <!-- ============================ -->
-                    <!-- GALERIE PHOTOS POUR RADIOCOM -->
-                    <!-- ============================ -->
                     <h4>Quelques réalisations :</h4>
                     <div class="gallery">
-                        <!-- REMPLACEZ CES ELEMENTS PAR VOS PHOTOS -->
-                        <!-- FORMATS ACCEPTÉS: JPG, PNG, WEBP (ÉVITEZ HEIC) -->
-                        <!-- TAILLE OPTIMALE: 600x600 pixels -->
                         <div class="gallery-item">
                             <img src="Infra.jpg" alt="Installation équipement réseau">
                         </div>
@@ -749,10 +873,8 @@
                             <img src="Test.jpg" alt="Documentation technique">
                         </div>
                     </div>
-                   <!-- <p class="gallery-instructions"><small>Pour ajouter vos propres photos, remplacez les chemins d'accès "src" des images ci-dessus par les chemins vers vos photos.</small></p> -->
                 </div>
                 
-                <!-- Expérience GIAD FUCHS avec galerie -->
                 <div class="experience-item">
                     <div class="experience-header">
                         <h3 class="experience-title">Ingénieur Réseau Indépendant - GIAD FUCHS ASSOCIATED</h3>
@@ -763,12 +885,8 @@
                         configuration de routeurs, dépannage, optimisation des réseaux domestiques et Installation des caméras de surveillance.
                     </p>
                     
-                    <!-- ============================== -->
-                    <!-- GALERIE PHOTOS POUR GIAD FUCHS -->
-                    <!-- ============================== -->
                     <h4>Quelques réalisations :</h4>
                     <div class="gallery">
-                        <!-- REMPLACEZ CES ELEMENTS PAR VOS PHOTOS -->
                         <div class="gallery-item">
                             <img src="camera.jpg" alt="Installation caméra de surveillance">
                         </div>
@@ -782,10 +900,8 @@
                             <img src="DOC.jpg" alt="Optimisation réseau">
                         </div>
                     </div>
-                    <!--<p class="gallery-instructions"><small>Pour ajouter vos propres photos, remplacez les chemins d'accès "src" des images ci-dessus par les chemins vers vos photos.</small></p> -->
                 </div>
                 
-                <!-- Autres expériences -->
                 <div class="experience-item">
                     <div class="experience-header">
                         <h3 class="experience-title">Administrateur Gérant - IMPREMIERIE ET BUREAUTIQUE RK CONCEPT</h3>
@@ -806,6 +922,140 @@
                         Accueil des visiteurs, support à l'équipe dans la planification des projets,
                         rédaction de documents administratifs, organisation d'événements.
                     </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Page Formations -->
+    <div id="formations" class="page">
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Mes formations</h2>
+                <div class="formations-container">
+                    <!-- Formations Orange RDC -->
+                    <div class="formation-card">
+                        <div class="formation-header">
+                            <div>
+                                <h3 class="formation-title">Analyste en Cyber sécurité</h3>
+                                <p class="formation-institution">Orange RDC (Orange Digital Center)</p>
+                            </div>
+                            <div class="formation-date">Sep 2025 – Nov 2025</div>
+                        </div>
+                        <p class="formation-desc">Formation intensive en cybersécurité avec certification Google Cyber Security, couvrant l'analyse des risques, la détection des menaces (SIEM, IDS), et l'automatisation des tâches de sécurité avec Python.</p>
+                        <div class="formation-badge">Google Cyber Security</div>
+                    </div>
+                    
+                    <div class="formation-card">
+                        <div class="formation-header">
+                            <div>
+                                <h3 class="formation-title">IT Support</h3>
+                                <p class="formation-institution">Orange RDC (Orange Digital Center)</p>
+                            </div>
+                            <div class="formation-date">Août 2025</div>
+                        </div>
+                        <p class="formation-desc">Formation certifiante Google IT Support couvrant le support technique utilisateurs (niveau 1 & 2), dépannage hardware/software, gestion des tickets et maintenance préventive.</p>
+                        <div class="formation-badge">Google IT Support</div>
+                    </div>
+                    
+                    <div class="formation-card">
+                        <div class="formation-header">
+                            <div>
+                                <h3 class="formation-title">Administration système sous Linux</h3>
+                                <p class="formation-institution">Orange RDC (Orange Digital Center)</p>
+                            </div>
+                            <div class="formation-date">Juillet 2025</div>
+                        </div>
+                        <p class="formation-desc">Formation en administration système Linux, couvrant Ubuntu et Debian Server, avec installation et configuration de serveurs web.</p>
+                        <div class="formation-badge">Linux Administration</div>
+                    </div>
+                    
+                    <!-- Formations Udemy -->
+                    <div class="formation-card">
+                        <div class="formation-header">
+                            <div>
+                                <h3 class="formation-title">Windows Server 2019/2022</h3>
+                                <p class="formation-institution">Udemy</p>
+                            </div>
+                            <div class="formation-date">Mars 2025 – Juin 2025</div>
+                        </div>
+                        <p class="formation-desc">Formation complète sur Windows Server 2019/2022, couvrant Active Directory, Group Policy, DFS, RDS, DHCP, DNS et la virtualisation avec Hyper-V.</p>
+                        <div class="formation-badge">Windows Server</div>
+                    </div>
+                    
+                    <div class="formation-card">
+                        <div class="formation-header">
+                            <div>
+                                <h3 class="formation-title">Développement Full Stack</h3>
+                                <p class="formation-institution">Udemy</p>
+                            </div>
+                            <div class="formation-date">Janvier 2025 – en cours</div>
+                        </div>
+                        <p class="formation-desc">Formation en développement web full stack, couvrant les technologies front-end et back-end pour la création d'applications web complètes.</p>
+                        <div class="formation-badge">Full Stack</div>
+                    </div>
+                    
+                    <!-- Autres formations -->
+                    <div class="formation-card">
+                        <div class="formation-header">
+                            <div>
+                                <h3 class="formation-title">Sécurité Électronique</h3>
+                                <p class="formation-institution">Open Group Innovation</p>
+                            </div>
+                            <div class="formation-date">Nov 2024</div>
+                        </div>
+                        <p class="formation-desc">Formation spécialisée en sécurité électronique, couvrant l'installation et la configuration de caméras de surveillance et systèmes de contrôle d'accès.</p>
+                        <div class="formation-badge">Sécurité Électronique</div>
+                    </div>
+                    
+                    <div class="formation-card">
+                        <div class="formation-header">
+                            <div>
+                                <h3 class="formation-title">CCNA (Ingénieur Réseau)</h3>
+                                <p class="formation-institution">GTINT Academy</p>
+                            </div>
+                            <div class="formation-date">Mars 2024 – Oct 2024</div>
+                        </div>
+                        <p class="formation-desc">Formation certifiante Cisco CCNA couvrant les concepts fondamentaux des réseaux, le routage, la commutation, les VLAN, ACL, NAT, VPN, DHCP, DNS et IPv4/IPv6.</p>
+                        <div class="formation-badge">Cisco CCNA</div>
+                    </div>
+                    
+                    <div class="formation-card">
+                        <div class="formation-header">
+                            <div>
+                                <h3 class="formation-title">CCST (Technicien Réseau)</h3>
+                                <p class="formation-institution">Netacad (Cisco)</p>
+                            </div>
+                            <div class="formation-date">Mai 2024 – Sep 2024</div>
+                        </div>
+                        <p class="formation-desc">Formation Cisco Certified Support Technician, couvrant les compétences de base en réseaux et support technique.</p>
+                        <div class="formation-badge">Cisco CCST</div>
+                    </div>
+                    
+                    <!-- Diplômes -->
+                    <div class="formation-card">
+                        <div class="formation-header">
+                            <div>
+                                <h3 class="formation-title">Diplôme en Informatique en Réseau et Technique de Maintenance (RTM)</h3>
+                                <p class="formation-institution">ISIPA</p>
+                            </div>
+                            <div class="formation-date">Diplôme obtenu</div>
+                        </div>
+                        <p class="formation-desc">Formation académique en informatique réseau et techniques de maintenance, fournissant une base solide en réseaux informatiques et administration système.</p>
+                        <div class="formation-badge">Diplôme</div>
+                    </div>
+                    
+                    <div class="formation-card">
+                        <div class="formation-header">
+                            <div>
+                                <h3 class="formation-title">Diplôme d'État en Chimie Biologie</h3>
+                                <p class="formation-institution">Institut BOBOKOLI</p>
+                            </div>
+                            <div class="formation-date">Diplôme obtenu</div>
+                        </div>
+                        <p class="formation-desc">Formation secondaire en chimie-biologie, développant des compétences analytiques et scientifiques.</p>
+                        <div class="formation-badge">Diplôme d'État</div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -933,17 +1183,34 @@
             // Afficher la page demandée
             document.getElementById(pageId).classList.add('active');
             
-            // Mettre à jour les boutons de navigation
-            document.querySelectorAll('.page-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            // Activer le bouton correspondant
-            document.querySelector(`.page-btn[onclick="showPage('${pageId}')"]`).classList.add('active');
-            
             // Scroll vers le haut
             window.scrollTo(0, 0);
+            
+            // Fermer le menu mobile si ouvert
+            closeMobileMenu();
         }
+        
+        // Fonction pour toggle le menu mobile
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+        
+        // Fonction pour fermer le menu mobile
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.remove('active');
+        }
+        
+        // Fermer le menu mobile en cliquant à l'extérieur
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburger = document.querySelector('.hamburger');
+            
+            if (!hamburger.contains(event.target) && !mobileMenu.contains(event.target)) {
+                closeMobileMenu();
+            }
+        });
         
         // Form submission handling - Envoi d'email
         const contactForm = document.getElementById('emailForm');
