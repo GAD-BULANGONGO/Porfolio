@@ -855,6 +855,33 @@
             transform: translateY(-5px);
         }
         
+        /* Menu d'ancrage rapide pour mobile */
+        .quick-nav-mobile {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--light-blue);
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .quick-nav-mobile a {
+            flex: 1;
+            text-align: center;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 12px;
+            padding: 5px;
+            transition: color 0.3s;
+        }
+        
+        .quick-nav-mobile a:hover {
+            color: var(--orange);
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
@@ -869,22 +896,34 @@
                 grid-template-columns: 1fr;
             }
             
+            /* Optimisations pour la page d'accueil */
+            .hero {
+                min-height: 70vh; /* Réduit la hauteur sur mobile */
+                padding: 40px 0;
+            }
+            
             .profile-name {
-                font-size: 36px;
+                font-size: 28px;
+                margin-bottom: 15px;
             }
             
             .profile-title {
-                font-size: 20px;
+                font-size: 16px;
+                margin-bottom: 20px;
+                line-height: 1.4;
             }
             
             .profile-image-container {
-                width: 180px;
-                height: 180px;
+                width: 150px;
+                height: 150px;
+                margin-bottom: 20px;
             }
             
             .professional-description {
-                font-size: 16px;
-                padding: 20px;
+                font-size: 14px;
+                padding: 15px;
+                margin: 20px 0;
+                line-height: 1.5;
             }
             
             .compact-gallery {
@@ -924,20 +963,83 @@
                 margin-left: 0;
                 margin-top: 5px;
             }
+            
+            /* Réduction des espacements sur mobile */
+            .section {
+                padding: 50px 0;
+            }
+            
+            .section-title {
+                font-size: 24px;
+                margin-bottom: 30px;
+            }
+            
+            /* Optimisation de l'expérience professionnelle */
+            .experience-item {
+                padding: 20px;
+                margin-bottom: 40px;
+            }
+            
+            .experience-title {
+                font-size: 20px;
+            }
+            
+            /* Optimisation des formations */
+            .formations-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .formation-card {
+                padding: 20px;
+            }
+            
+            /* Afficher le menu d'ancrage rapide sur mobile */
+            .quick-nav-mobile {
+                display: flex;
+            }
         }
         
         @media (max-width: 480px) {
             .profile-name {
-                font-size: 28px;
+                font-size: 24px;
             }
             
             .profile-title {
-                font-size: 18px;
+                font-size: 14px;
             }
             
             .profile-image-container {
-                width: 150px;
-                height: 150px;
+                width: 120px;
+                height: 120px;
+            }
+            
+            .hero-content {
+                padding: 10px;
+            }
+            
+            /* Réduction supplémentaire des espacements sur très petits écrans */
+            .section {
+                padding: 40px 0;
+            }
+            
+            .section-title {
+                font-size: 22px;
+                margin-bottom: 25px;
+            }
+            
+            .experience-item {
+                padding: 15px;
+                margin-bottom: 30px;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .skill-category {
+                padding: 20px;
             }
         }
     </style>
@@ -975,6 +1077,14 @@
             <li><a href="#" onclick="navigateTo('projects')"><i class="fas fa-project-diagram"></i> Projets</a></li>
             <li><a href="#" onclick="navigateTo('contact')"><i class="fas fa-envelope"></i> Contact</a></li>
         </ul>
+    </div>
+
+    <!-- Menu d'ancrage rapide pour mobile -->
+    <div class="quick-nav-mobile">
+        <a href="#" onclick="showPage('accueil')">Accueil</a>
+        <a href="#" onclick="showPage('skills')">Compétences</a>
+        <a href="#" onclick="showPage('experience')">Expérience</a>
+        <a href="#" onclick="showPage('contact')">Contact</a>
     </div>
 
     <!-- Page Accueil -->
@@ -1063,7 +1173,7 @@
                         <ul class="skill-list">
                             <li><i class="fab fa-windows"></i> Windows Server 2019/2022 (Active Directory, Group Policy, DFS, RDS, DHCP, DNS)</li>
                             <li><i class="fas fa-cloud"></i> Virtualisation (Hyper-V, VMware)</li>
-                            <li><i class fab fa-microsoft"></i> Scripts PowerShell</li>
+                            <li><i class="fab fa-microsoft"></i> Scripts PowerShell</li>
                         </ul>
                     </div>
                     
