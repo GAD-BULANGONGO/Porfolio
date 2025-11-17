@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Gad Bulangongo Mikudi</title>
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --dark-blue: #0a192f;
@@ -87,6 +89,13 @@
             transition: color 0.3s;
             padding: 10px 15px;
             border-radius: 4px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links a i {
+            margin-right: 8px;
+            font-size: 16px;
         }
         
         .nav-links a:hover {
@@ -145,8 +154,15 @@
             font-size: 18px;
             font-weight: 500;
             padding: 10px 20px;
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: all 0.3s;
+        }
+        
+        .mobile-nav-links a i {
+            margin-right: 10px;
+            font-size: 18px;
         }
         
         .mobile-nav-links a:hover {
@@ -164,6 +180,14 @@
             text-align: center;
             color: var(--orange);
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .section-title i {
+            margin-right: 15px;
+            font-size: 28px;
         }
         
         .section-title::after {
@@ -263,7 +287,8 @@
         }
         
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             padding: 12px 30px;
             background-color: var(--orange);
             color: var(--dark-blue);
@@ -273,6 +298,10 @@
             transition: all 0.3s;
             border: none;
             cursor: pointer;
+        }
+        
+        .btn i {
+            margin-right: 8px;
         }
         
         .btn:hover {
@@ -292,12 +321,24 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
         }
         
         .skill-category h3 {
             color: var(--orange);
             margin-bottom: 20px;
             font-size: 22px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-category h3 i {
+            margin-right: 10px;
+            font-size: 20px;
         }
         
         .skill-list {
@@ -305,17 +346,20 @@
         }
         
         .skill-list li {
-            margin-bottom: 8px;
+            margin-bottom: 12px;
             color: var(--light-gray);
             position: relative;
-            padding-left: 15px;
+            padding-left: 25px;
+            display: flex;
+            align-items: center;
         }
         
-        .skill-list li:before {
-            content: "•";
+        .skill-list li i {
+            margin-right: 10px;
             color: var(--orange);
-            position: absolute;
-            left: 0;
+            font-size: 14px;
+            width: 16px;
+            text-align: center;
         }
         
         /* Experience Section */
@@ -325,6 +369,11 @@
             background-color: var(--light-blue);
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .experience-item:hover {
+            transform: translateY(-5px);
         }
         
         .experience-header {
@@ -339,6 +388,12 @@
             font-weight: bold;
             color: var(--orange);
             margin-top: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .experience-date i {
+            margin-right: 8px;
         }
         
         .experience-title {
@@ -346,6 +401,13 @@
             font-size: 24px;
             margin-bottom: 10px;
             word-break: break-word;
+            display: flex;
+            align-items: center;
+        }
+        
+        .experience-title i {
+            margin-right: 10px;
+            color: var(--orange);
         }
         
         .experience-desc {
@@ -362,6 +424,12 @@
             color: var(--orange);
             margin-bottom: 15px;
             font-size: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .gallery-title i {
+            margin-right: 10px;
         }
         
         .compact-gallery {
@@ -581,6 +649,12 @@
             color: var(--orange);
             margin-bottom: 10px;
             word-break: break-word;
+            display: flex;
+            align-items: center;
+        }
+        
+        .project-title i {
+            margin-right: 10px;
         }
         
         .project-desc {
@@ -601,6 +675,13 @@
             font-size: 12px;
             margin-right: 10px;
             margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .project-tag i {
+            margin-right: 5px;
+            font-size: 10px;
         }
         
         /* Contact Section */
@@ -622,14 +703,15 @@
         }
         
         .contact-icon {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             background-color: var(--orange);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-right: 15px;
+            font-size: 20px;
         }
         
         .contact-form input,
@@ -638,9 +720,15 @@
             padding: 12px;
             margin-bottom: 20px;
             background-color: var(--light-blue);
-            border: none;
+            border: 1px solid rgba(255, 122, 0, 0.3);
             border-radius: 4px;
             color: var(--white);
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--orange);
         }
         
         .contact-form textarea {
@@ -678,12 +766,25 @@
             color: var(--orange);
             font-size: 20px;
             margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .formation-title i {
+            margin-right: 10px;
         }
         
         .formation-institution {
             color: var(--light-gray);
             font-weight: 500;
             margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .formation-institution i {
+            margin-right: 8px;
+            font-size: 14px;
         }
         
         .formation-date {
@@ -692,6 +793,12 @@
             font-size: 14px;
             white-space: nowrap;
             margin-left: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .formation-date i {
+            margin-right: 5px;
         }
         
         .formation-desc {
@@ -700,7 +807,8 @@
         }
         
         .formation-badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             background-color: rgba(255, 122, 0, 0.2);
             color: var(--orange);
             padding: 5px 10px;
@@ -708,6 +816,10 @@
             font-size: 12px;
             margin-right: 10px;
             margin-bottom: 10px;
+        }
+        
+        .formation-badge i {
+            margin-right: 5px;
         }
         
         /* Footer */
@@ -724,8 +836,8 @@
         }
         
         .social-link {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             background-color: var(--dark-blue);
             margin: 0 10px;
@@ -735,6 +847,7 @@
             transition: all 0.3s;
             text-decoration: none;
             color: var(--white);
+            font-size: 18px;
         }
         
         .social-link:hover {
@@ -836,12 +949,12 @@
             <nav>
                 <div class="logo">GBM</div>
                 <ul class="nav-links">
-                    <li><a href="#" onclick="showPage('accueil')">Accueil</a></li>
-                    <li><a href="#" onclick="showPage('skills')">Compétences</a></li>
-                    <li><a href="#" onclick="showPage('experience')">Expérience</a></li>
-                    <li><a href="#" onclick="showPage('formations')">Formations</a></li>
-                    <li><a href="#" onclick="showPage('projects')">Projets</a></li>
-                    <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+                    <li><a href="#" onclick="showPage('accueil')"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li><a href="#" onclick="showPage('skills')"><i class="fas fa-cogs"></i> Compétences</a></li>
+                    <li><a href="#" onclick="showPage('experience')"><i class="fas fa-briefcase"></i> Expérience</a></li>
+                    <li><a href="#" onclick="showPage('formations')"><i class="fas fa-graduation-cap"></i> Formations</a></li>
+                    <li><a href="#" onclick="showPage('projects')"><i class="fas fa-project-diagram"></i> Projets</a></li>
+                    <li><a href="#" onclick="showPage('contact')"><i class="fas fa-envelope"></i> Contact</a></li>
                 </ul>
                 <button class="hamburger" onclick="toggleMobileMenu()">
                     <span></span>
@@ -855,12 +968,12 @@
     <!-- Menu Mobile -->
     <div class="mobile-menu" id="mobileMenu">
         <ul class="mobile-nav-links">
-            <li><a href="#" onclick="navigateTo('accueil')">Accueil</a></li>
-            <li><a href="#" onclick="navigateTo('skills')">Compétences</a></li>
-            <li><a href="#" onclick="navigateTo('experience')">Expérience</a></li>
-            <li><a href="#" onclick="navigateTo('formations')">Formations</a></li>
-            <li><a href="#" onclick="navigateTo('projects')">Projets</a></li>
-            <li><a href="#" onclick="navigateTo('contact')">Contact</a></li>
+            <li><a href="#" onclick="navigateTo('accueil')"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="#" onclick="navigateTo('skills')"><i class="fas fa-cogs"></i> Compétences</a></li>
+            <li><a href="#" onclick="navigateTo('experience')"><i class="fas fa-briefcase"></i> Expérience</a></li>
+            <li><a href="#" onclick="navigateTo('formations')"><i class="fas fa-graduation-cap"></i> Formations</a></li>
+            <li><a href="#" onclick="navigateTo('projects')"><i class="fas fa-project-diagram"></i> Projets</a></li>
+            <li><a href="#" onclick="navigateTo('contact')"><i class="fas fa-envelope"></i> Contact</a></li>
         </ul>
     </div>
 
@@ -877,16 +990,16 @@
                             <img src="votre-photo.jpg" alt="Photo de profil de Gad Bulangongo Mikudi" class="profile-image">
                         </div>
                         
-                        <h2 class="profile-title">Analyst Junior Cybersecurity | IT Support Specialist | Ingénieur Réseau | Administrateur Système (Windows server & Linux)</h2>
+                        <h2 class="profile-title"><i class="fas fa-shield-alt"></i> Analyst Junior Cybersecurity | IT Support Specialist | Ingénieur Réseau | Administrateur Système (Windows server & Linux)</h2>
                     </div>
                     
                     <div class="professional-description">
-                        Professionnel polyvalent en réseaux, systèmes et cyber sécurité, certifié Cisco CCNA, Google IT Support et Google Cyber Security. Expérimenté en configuration d'équipements Cisco, administration de serveurs Windows et Linux (desktop & server), ainsi qu'en support technique utilisateurs (niveau 1 & 2) et sécurisation des infrastructures.
+                        <i class="fas fa-user-tie"></i> Professionnel polyvalent en réseaux, systèmes et cyber sécurité, certifié Cisco CCNA, Google IT Support et Google Cyber Security. Expérimenté en configuration d'équipements Cisco, administration de serveurs Windows et Linux (desktop & server), ainsi qu'en support technique utilisateurs (niveau 1 & 2) et sécurisation des infrastructures.
                         <br><br>
-                        Compétent dans l'analyse des risques, la détection des menaces (SIEM, IDS), et l'automatisation des tâches de sécurité avec Python. Rigoureux, dynamique et passionné par les technologies réseau, système et sécurité, avec une forte capacité d'adaptation aux environnements techniques exigeants.
+                        <i class="fas fa-search"></i> Compétent dans l'analyse des risques, la détection des menaces (SIEM, IDS), et l'automatisation des tâches de sécurité avec Python. Rigoureux, dynamique et passionné par les technologies réseau, système et sécurité, avec une forte capacité d'adaptation aux environnements techniques exigeants.
                     </div>
                     
-                    <a href="#" onclick="showPage('contact')" class="btn">Me contacter</a>
+                    <a href="#" onclick="showPage('contact')" class="btn"><i class="fas fa-paper-plane"></i> Me contacter</a>
                 </div>
             </div>
         </section>
@@ -896,87 +1009,87 @@
     <div id="skills" class="page">
         <section class="section">
             <div class="container">
-                <h2 class="section-title">Mes compétences</h2>
+                <h2 class="section-title"><i class="fas fa-cogs"></i> Mes compétences</h2>
                 <div class="skills-container">
                     <div class="skill-category">
-                        <h3>Sécurité</h3>
+                        <h3><i class="fas fa-shield-alt"></i> Sécurité</h3>
                         <ul class="skill-list">
-                            <li>Firewall</li>
-                            <li>Sécurité Windows</li>
-                            <li>Sécurité Réseau</li>
-                            <li>SIEM</li>
-                            <li>IDS</li>
-                            <li>Automatisation Python</li>
-                            <li>SQL</li>
-                            <li>Analyse des risques et vulnérabilités</li>
-                            <li>Gestion des incidents</li>
-                            <li>Contrôle d'accès</li>
-                            <li>Caméras HikVision</li>
+                            <li><i class="fas fa-fire"></i> Firewall</li>
+                            <li><i class="fab fa-windows"></i> Sécurité Windows</li>
+                            <li><i class="fas fa-network-wired"></i> Sécurité Réseau</li>
+                            <li><i class="fas fa-chart-line"></i> SIEM</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> IDS</li>
+                            <li><i class="fab fa-python"></i> Automatisation Python</li>
+                            <li><i class="fas fa-database"></i> SQL</li>
+                            <li><i class="fas fa-search"></i> Analyse des risques et vulnérabilités</li>
+                            <li><i class="fas fa-tools"></i> Gestion des incidents</li>
+                            <li><i class="fas fa-user-lock"></i> Contrôle d'accès</li>
+                            <li><i class="fas fa-video"></i> Caméras HikVision</li>
                         </ul>
                     </div>
                     
                     <div class="skill-category">
-                        <h3>Support IT</h3>
+                        <h3><i class="fas fa-headset"></i> Support IT</h3>
                         <ul class="skill-list">
-                            <li>Assistance utilisateurs N1 & N2</li>
-                            <li>Dépannage hardware/software</li>
-                            <li>Gestion des tickets</li>
-                            <li>Maintenance préventive</li>
-                            <li>Google Workspace</li>
-                            <li>Microsoft 365</li>
-                            <li>Documentation technique</li>
+                            <li><i class="fas fa-users"></i> Assistance utilisateurs N1 & N2</li>
+                            <li><i class="fas fa-tools"></i> Dépannage hardware/software</li>
+                            <li><i class="fas fa-ticket-alt"></i> Gestion des tickets</li>
+                            <li><i class="fas fa-wrench"></i> Maintenance préventive</li>
+                            <li><i class="fab fa-google"></i> Google Workspace</li>
+                            <li><i class="fab fa-microsoft"></i> Microsoft 365</li>
+                            <li><i class="fas fa-file-alt"></i> Documentation technique</li>
                         </ul>
                     </div>
                     
                     <div class="skill-category">
-                        <h3>Réseaux</h3>
+                        <h3><i class="fas fa-network-wired"></i> Réseaux</h3>
                         <ul class="skill-list">
-                            <li>Cisco IOS</li>
-                            <li>Routing</li>
-                            <li>Switching</li>
-                            <li>VLAN</li>
-                            <li>ACL</li>
-                            <li>NAT</li>
-                            <li>VPN</li>
-                            <li>DHCP</li>
-                            <li>DNS</li>
-                            <li>IPv4/IPv6</li>
-                            <li>WiFi(802.11)</li>
+                            <li><i class="fab fa-cisco"></i> Cisco IOS</li>
+                            <li><i class="fas fa-route"></i> Routing</li>
+                            <li><i class="fas fa-sitemap"></i> Switching</li>
+                            <li><i class="fas fa-project-diagram"></i> VLAN</li>
+                            <li><i class="fas fa-filter"></i> ACL</li>
+                            <li><i class="fas fa-exchange-alt"></i> NAT</li>
+                            <li><i class="fas fa-user-shield"></i> VPN</li>
+                            <li><i class="fas fa-server"></i> DHCP</li>
+                            <li><i class="fas fa-globe"></i> DNS</li>
+                            <li><i class="fas fa-desktop"></i> IPv4/IPv6</li>
+                            <li><i class="fas fa-wifi"></i> WiFi(802.11)</li>
                         </ul>
                     </div>
                     
                     <div class="skill-category">
-                        <h3>Systèmes</h3>
+                        <h3><i class="fas fa-server"></i> Systèmes</h3>
                         <ul class="skill-list">
-                            <li>Windows Server 2019/2022 (Active Directory, Group Policy, DFS, RDS, DHCP, DNS)</li>
-                            <li>Virtualisation (Hyper-V, VMware)</li>
-                            <li>Scripts PowerShell</li>
+                            <li><i class="fab fa-windows"></i> Windows Server 2019/2022 (Active Directory, Group Policy, DFS, RDS, DHCP, DNS)</li>
+                            <li><i class="fas fa-cloud"></i> Virtualisation (Hyper-V, VMware)</li>
+                            <li><i class fab fa-microsoft"></i> Scripts PowerShell</li>
                         </ul>
                     </div>
                     
                     <div class="skill-category">
-                        <h3>Linux</h3>
+                        <h3><i class="fab fa-linux"></i> Linux</h3>
                         <ul class="skill-list">
-                            <li>Administration Ubuntu et Debian Server (installation et configuration de serveurs web)</li>
-                            <li>Ubuntu Desktop</li>
-                            <li>Compétences en ligne de commande et gestion des systèmes</li>
+                            <li><i class="fab fa-ubuntu"></i> Administration Ubuntu et Debian Server (installation et configuration de serveurs web)</li>
+                            <li><i class="fas fa-desktop"></i> Ubuntu Desktop</li>
+                            <li><i class="fas fa-terminal"></i> Compétences en ligne de commande et gestion des systèmes</li>
                         </ul>
                     </div>
                     
                     <div class="skill-category">
-                        <h3>Outils collaboratifs</h3>
+                        <h3><i class="fas fa-users-cog"></i> Outils collaboratifs</h3>
                         <ul class="skill-list">
-                            <li>Microsoft Office 365</li>
-                            <li>Gmail</li>
-                            <li>Google Drive</li>
+                            <li><i class="fab fa-microsoft"></i> Microsoft Office 365</li>
+                            <li><i class="fab fa-google"></i> Gmail</li>
+                            <li><i class="fab fa-google-drive"></i> Google Drive</li>
                         </ul>
                     </div>
                     
                     <div class="skill-category">
-                        <h3>Langues</h3>
+                        <h3><i class="fas fa-language"></i> Langues</h3>
                         <ul class="skill-list">
-                            <li>Français (C1)</li>
-                            <li>Anglais (technique de base)</li>
+                            <li><i class="fas fa-flag"></i> Français (C1)</li>
+                            <li><i class="fas fa-flag-usa"></i> Anglais (technique de base)</li>
                         </ul>
                     </div>
                 </div>
@@ -988,12 +1101,12 @@
     <div id="experience" class="page">
         <section class="section">
             <div class="container">
-                <h2 class="section-title">Mon expérience professionnelle</h2>
+                <h2 class="section-title"><i class="fas fa-briefcase"></i> Mon expérience professionnelle</h2>
                 
                 <div class="experience-item">
                     <div class="experience-header">
-                        <h3 class="experience-title">Ingénieur Réseau - RADIOCOM</h3>
-                        <div class="experience-date">05/2024 - 02/2025</div>
+                        <h3 class="experience-title"><i class="fas fa-network-wired"></i> Ingénieur Réseau - RADIOCOM</h3>
+                        <div class="experience-date"><i class="far fa-calendar-alt"></i> 05/2024 - 02/2025</div>
                     </div>
                     <p class="experience-desc">
                         Analyse des besoins réseau, installation et configuration des équipements réseau (Cisco, HP),
@@ -1001,7 +1114,7 @@
                     </p>
                     
                     <div class="gallery-container">
-                        <h4 class="gallery-title">Quelques réalisations :</h4>
+                        <h4 class="gallery-title"><i class="fas fa-images"></i> Quelques réalisations :</h4>
                         <div class="compact-gallery" data-gallery="radiocom">
                             <button class="gallery-nav gallery-prev">&#10094;</button>
                             <button class="gallery-nav gallery-next">&#10095;</button>
@@ -1033,8 +1146,8 @@
                 
                 <div class="experience-item">
                     <div class="experience-header">
-                        <h3 class="experience-title">Ingénieur Réseau Indépendant - GIAD FUCHS ASSOCIATED</h3>
-                        <div class="experience-date">03/2023 à Présent</div>
+                        <h3 class="experience-title"><i class="fas fa-user-tie"></i> Ingénieur Réseau Indépendant - GIAD FUCHS ASSOCIATED</h3>
+                        <div class="experience-date"><i class="far fa-calendar-alt"></i> 03/2023 à Présent</div>
                     </div>
                     <p class="experience-desc">
                         Aide aux résidents pour résoudre des problèmes de connexion Internet et réseaux,
@@ -1042,7 +1155,7 @@
                     </p>
                     
                     <div class="gallery-container">
-                        <h4 class="gallery-title">Quelques réalisations :</h4>
+                        <h4 class="gallery-title"><i class="fas fa-images"></i> Quelques réalisations :</h4>
                         <div class="compact-gallery" data-gallery="giad-fuchs">
                             <button class="gallery-nav gallery-prev">&#10094;</button>
                             <button class="gallery-nav gallery-next">&#10095;</button>
@@ -1074,8 +1187,8 @@
                 
                 <div class="experience-item">
                     <div class="experience-header">
-                        <h3 class="experience-title">Administrateur Gérant - IMPREMIERIE ET BUREAUTIQUE RK CONCEPT</h3>
-                        <div class="experience-date">01/2021 - 11/2022</div>
+                        <h3 class="experience-title"><i class="fas fa-user-tie"></i> Administrateur Gérant - IMPREMIERIE ET BUREAUTIQUE RK CONCEPT</h3>
+                        <div class="experience-date"><i class="far fa-calendar-alt"></i> 01/2021 - 11/2022</div>
                     </div>
                     <p class="experience-desc">
                         Gestion administrative, planification et coordination, suivi budgétaire,
@@ -1085,8 +1198,8 @@
                 
                 <div class="experience-item">
                     <div class="experience-header">
-                        <h3 class="experience-title">Assistant Administratif et Informaticien - ONG Association des Conducteurs Poids Lourds du Congo</h3>
-                        <div class="experience-date">01/2020 - 12/2020</div>
+                        <h3 class="experience-title"><i class="fas fa-hands-helping"></i> Assistant Administratif et Informaticien - ONG Association des Conducteurs Poids Lourds du Congo</h3>
+                        <div class="experience-date"><i class="far fa-calendar-alt"></i> 01/2020 - 12/2020</div>
                     </div>
                     <p class="experience-desc">
                         Accueil des visiteurs, support à l'équipe dans la planification des projets,
@@ -1112,130 +1225,130 @@
     <div id="formations" class="page">
         <section class="section">
             <div class="container">
-                <h2 class="section-title">Mes formations</h2>
+                <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Mes formations</h2>
                 <div class="formations-container">
                     <!-- Formations Orange RDC -->
                     <div class="formation-card">
                         <div class="formation-header">
                             <div>
-                                <h3 class="formation-title">Analyste en Cyber sécurité</h3>
-                                <p class="formation-institution">Orange RDC (Orange Digital Center)</p>
+                                <h3 class="formation-title"><i class="fas fa-shield-alt"></i> Analyste en Cyber sécurité</h3>
+                                <p class="formation-institution"><i class="fas fa-university"></i> Orange RDC (Orange Digital Center)</p>
                             </div>
-                            <div class="formation-date">Sep 2025 – Nov 2025</div>
+                            <div class="formation-date"><i class="far fa-calendar-alt"></i> Sep 2025 – Nov 2025</div>
                         </div>
                         <p class="formation-desc">Formation intensive en cybersécurité avec certification Google Cyber Security, couvrant l'analyse des risques, la détection des menaces (SIEM, IDS), et l'automatisation des tâches de sécurité avec Python.</p>
-                        <div class="formation-badge">Google Cyber Security</div>
+                        <div class="formation-badge"><i class="fas fa-award"></i> Google Cyber Security</div>
                     </div>
                     
                     <div class="formation-card">
                         <div class="formation-header">
                             <div>
-                                <h3 class="formation-title">IT Support</h3>
-                                <p class="formation-institution">Orange RDC (Orange Digital Center)</p>
+                                <h3 class="formation-title"><i class="fas fa-headset"></i> IT Support</h3>
+                                <p class="formation-institution"><i class="fas fa-university"></i> Orange RDC (Orange Digital Center)</p>
                             </div>
-                            <div class="formation-date">Août 2025</div>
+                            <div class="formation-date"><i class="far fa-calendar-alt"></i> Août 2025</div>
                         </div>
                         <p class="formation-desc">Formation certifiante Google IT Support couvrant le support technique utilisateurs (niveau 1 & 2), dépannage hardware/software, gestion des tickets et maintenance préventive.</p>
-                        <div class="formation-badge">Google IT Support</div>
+                        <div class="formation-badge"><i class="fas fa-award"></i> Google IT Support</div>
                     </div>
                     
                     <div class="formation-card">
                         <div class="formation-header">
                             <div>
-                                <h3 class="formation-title">Administration système sous Linux</h3>
-                                <p class="formation-institution">Orange RDC (Orange Digital Center)</p>
+                                <h3 class="formation-title"><i class="fab fa-linux"></i> Administration système sous Linux</h3>
+                                <p class="formation-institution"><i class="fas fa-university"></i> Orange RDC (Orange Digital Center)</p>
                             </div>
-                            <div class="formation-date">Juillet 2025</div>
+                            <div class="formation-date"><i class="far fa-calendar-alt"></i> Juillet 2025</div>
                         </div>
                         <p class="formation-desc">Formation en administration système Linux, couvrant Ubuntu et Debian Server, avec installation et configuration de serveurs web.</p>
-                        <div class="formation-badge">Linux Administration</div>
+                        <div class="formation-badge"><i class="fas fa-award"></i> Linux Administration</div>
                     </div>
                     
                     <!-- Formations Udemy -->
                     <div class="formation-card">
                         <div class="formation-header">
                             <div>
-                                <h3 class="formation-title">Windows Server 2019/2022</h3>
-                                <p class="formation-institution">Udemy</p>
+                                <h3 class="formation-title"><i class="fab fa-windows"></i> Windows Server 2019/2022</h3>
+                                <p class="formation-institution"><i class="fas fa-university"></i> Udemy</p>
                             </div>
-                            <div class="formation-date">Mars 2025 – Juin 2025</div>
+                            <div class="formation-date"><i class="far fa-calendar-alt"></i> Mars 2025 – Juin 2025</div>
                         </div>
                         <p class="formation-desc">Formation complète sur Windows Server 2019/2022, couvrant Active Directory, Group Policy, DFS, RDS, DHCP, DNS et la virtualisation avec Hyper-V.</p>
-                        <div class="formation-badge">Windows Server</div>
+                        <div class="formation-badge"><i class="fas fa-award"></i> Windows Server</div>
                     </div>
                     
                     <div class="formation-card">
                         <div class="formation-header">
                             <div>
-                                <h3 class="formation-title">Développement Full Stack</h3>
-                                <p class="formation-institution">Udemy</p>
+                                <h3 class="formation-title"><i class="fas fa-code"></i> Développement Full Stack</h3>
+                                <p class="formation-institution"><i class="fas fa-university"></i> Udemy</p>
                             </div>
-                            <div class="formation-date">Janvier 2025 – en cours</div>
+                            <div class="formation-date"><i class="far fa-calendar-alt"></i> Janvier 2025 – en cours</div>
                         </div>
                         <p class="formation-desc">Formation en développement web full stack, couvrant les technologies front-end et back-end pour la création d'applications web complètes.</p>
-                        <div class="formation-badge">Full Stack</div>
+                        <div class="formation-badge"><i class="fas fa-award"></i> Full Stack</div>
                     </div>
                     
                     <!-- Autres formations -->
                     <div class="formation-card">
                         <div class="formation-header">
                             <div>
-                                <h3 class="formation-title">Sécurité Électronique</h3>
-                                <p class="formation-institution">Open Group Innovation</p>
+                                <h3 class="formation-title"><i class="fas fa-video"></i> Sécurité Électronique</h3>
+                                <p class="formation-institution"><i class="fas fa-university"></i> Open Group Innovation</p>
                             </div>
-                            <div class="formation-date">Nov 2024</div>
+                            <div class="formation-date"><i class="far fa-calendar-alt"></i> Nov 2024</div>
                         </div>
                         <p class="formation-desc">Formation spécialisée en sécurité électronique, couvrant l'installation et la configuration de caméras de surveillance et systèmes de contrôle d'accès.</p>
-                        <div class="formation-badge">Sécurité Électronique</div>
+                        <div class="formation-badge"><i class="fas fa-award"></i> Sécurité Électronique</div>
                     </div>
                     
                     <div class="formation-card">
                         <div class="formation-header">
                             <div>
-                                <h3 class="formation-title">CCNA (Ingénieur Réseau)</h3>
-                                <p class="formation-institution">GTINT Academy</p>
+                                <h3 class="formation-title"><i class="fab fa-cisco"></i> CCNA (Ingénieur Réseau)</h3>
+                                <p class="formation-institution"><i class="fas fa-university"></i> GTINT Academy</p>
                             </div>
-                            <div class="formation-date">Mars 2024 – Oct 2024</div>
+                            <div class="formation-date"><i class="far fa-calendar-alt"></i> Mars 2024 – Oct 2024</div>
                         </div>
                         <p class="formation-desc">Formation certifiante Cisco CCNA couvrant les concepts fondamentaux des réseaux, le routage, la commutation, les VLAN, ACL, NAT, VPN, DHCP, DNS et IPv4/IPv6.</p>
-                        <div class="formation-badge">Cisco CCNA</div>
+                        <div class="formation-badge"><i class="fas fa-award"></i> Cisco CCNA</div>
                     </div>
                     
                     <div class="formation-card">
                         <div class="formation-header">
                             <div>
-                                <h3 class="formation-title">CCST (Technicien Réseau)</h3>
-                                <p class="formation-institution">Netacad (Cisco)</p>
+                                <h3 class="formation-title"><i class="fab fa-cisco"></i> CCST (Technicien Réseau)</h3>
+                                <p class="formation-institution"><i class="fas fa-university"></i> Netacad (Cisco)</p>
                             </div>
-                            <div class="formation-date">Mai 2024 – Sep 2024</div>
+                            <div class="formation-date"><i class="far fa-calendar-alt"></i> Mai 2024 – Sep 2024</div>
                         </div>
                         <p class="formation-desc">Formation Cisco Certified Support Technician, couvrant les compétences de base en réseaux et support technique.</p>
-                        <div class="formation-badge">Cisco CCST</div>
+                        <div class="formation-badge"><i class="fas fa-award"></i> Cisco CCST</div>
                     </div>
                     
                     <!-- Diplômes -->
                     <div class="formation-card">
                         <div class="formation-header">
                             <div>
-                                <h3 class="formation-title">Diplôme en Informatique en Réseau et Technique de Maintenance (RTM)</h3>
-                                <p class="formation-institution">ISIPA</p>
+                                <h3 class="formation-title"><i class="fas fa-network-wired"></i> Diplôme en Informatique en Réseau et Technique de Maintenance (RTM)</h3>
+                                <p class="formation-institution"><i class="fas fa-university"></i> ISIPA</p>
                             </div>
-                            <div class="formation-date">Diplôme obtenu</div>
+                            <div class="formation-date"><i class="fas fa-graduation-cap"></i> Diplôme obtenu</div>
                         </div>
                         <p class="formation-desc">Formation académique en informatique réseau et techniques de maintenance, fournissant une base solide en réseaux informatiques et administration système.</p>
-                        <div class="formation-badge">Diplôme</div>
+                        <div class="formation-badge"><i class="fas fa-award"></i> Diplôme</div>
                     </div>
                     
                     <div class="formation-card">
                         <div class="formation-header">
                             <div>
-                                <h3 class="formation-title">Diplôme d'État en Chimie Biologie</h3>
-                                <p class="formation-institution">Institut BOBOKOLI</p>
+                                <h3 class="formation-title"><i class="fas fa-flask"></i> Diplôme d'État en Chimie Biologie</h3>
+                                <p class="formation-institution"><i class="fas fa-university"></i> Institut BOBOKOLI</p>
                             </div>
-                            <div class="formation-date">Diplôme obtenu</div>
+                            <div class="formation-date"><i class="fas fa-graduation-cap"></i> Diplôme obtenu</div>
                         </div>
                         <p class="formation-desc">Formation secondaire en chimie-biologie, développant des compétences analytiques et scientifiques.</p>
-                        <div class="formation-badge">Diplôme d'État</div>
+                        <div class="formation-badge"><i class="fas fa-award"></i> Diplôme d'État</div>
                     </div>
                 </div>
             </div>
@@ -1246,41 +1359,41 @@
     <div id="projects" class="page">
         <section class="section">
             <div class="container">
-                <h2 class="section-title">Mes projets</h2>
+                <h2 class="section-title"><i class="fas fa-project-diagram"></i> Mes projets</h2>
                 <div class="projects-grid">
                     <div class="project-card">
                         <div class="project-info">
-                            <h3 class="project-title">Réseau pour l'Union Européenne à Kinshasa</h3>
+                            <h3 class="project-title"><i class="fas fa-network-wired"></i> Réseau pour l'Union Européenne à Kinshasa</h3>
                             <p class="project-desc">Installation et configuration d'un réseau informatique aux niveaux 5,6,7 de l'Immeuble TOWER pour le nouveau bureau de l'Union Européenne à Kinshasa.</p>
                             <div class="project-tags">
-                                <span class="project-tag">Réseau</span>
-                                <span class="project-tag">Câblage</span>
-                                <span class="project-tag">WiFi</span>
-                                <span class="project-tag">Sécurité</span>
+                                <span class="project-tag"><i class="fas fa-ethernet"></i> Réseau</span>
+                                <span class="project-tag"><i class="fas fa-cable"></i> Câblage</span>
+                                <span class="project-tag"><i class="fas fa-wifi"></i> WiFi</span>
+                                <span class="project-tag"><i class="fas fa-shield-alt"></i> Sécurité</span>
                             </div>
                         </div>
                     </div>
                     
                     <div class="project-card">
                         <div class="project-info">
-                            <h3 class="project-title">Mise en place d'un réseau local</h3>
+                            <h3 class="project-title"><i class="fas fa-sitemap"></i> Mise en place d'un réseau local</h3>
                             <p class="project-desc">Conception et configuration d'un réseau local (LAN) pour un projet au Centre de Formation, en utilisant des routeurs et commutateurs Cisco.</p>
                             <div class="project-tags">
-                                <span class="project-tag">Cisco</span>
-                                <span class="project-tag">LAN</span>
-                                <span class="project-tag">OSI</span>
+                                <span class="project-tag"><i class="fab fa-cisco"></i> Cisco</span>
+                                <span class="project-tag"><i class="fas fa-network-wired"></i> LAN</span>
+                                <span class="project-tag"><i class="fas fa-layer-group"></i> OSI</span>
                             </div>
                         </div>
                     </div>
                     
                     <div class="project-card">
                         <div class="project-info">
-                            <h3 class="project-title">Laboratoire personnel</h3>
+                            <h3 class="project-title"><i class="fas fa-flask"></i> Laboratoire personnel</h3>
                             <p class="project-desc">Création d'un laboratoire à domicile pour expérimenter avec différents équipements réseau et configurations.</p>
                             <div class="project-tags">
-                                <span class="project-tag">Lab</span>
-                                <span class="project-tag">Expérimentation</span>
-                                <span class="project-tag">R&D</span>
+                                <span class="project-tag"><i class="fas fa-vial"></i> Lab</span>
+                                <span class="project-tag"><i class="fas fa-lightbulb"></i> Expérimentation</span>
+                                <span class="project-tag"><i class="fas fa-search"></i> R&D</span>
                             </div>
                         </div>
                     </div>
@@ -1293,11 +1406,11 @@
     <div id="contact" class="page">
         <section class="section">
             <div class="container">
-                <h2 class="section-title">Contactez-moi</h2>
+                <h2 class="section-title"><i class="fas fa-envelope"></i> Contactez-moi</h2>
                 <div class="contact-container">
                     <div class="contact-info">
                         <div class="contact-item">
-                            <div class="contact-icon">📧</div>
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                             <div>
                                 <h3>Email</h3>
                                 <p>gadbulangongo11@gmail.com</p>
@@ -1305,7 +1418,7 @@
                         </div>
                         
                         <div class="contact-item">
-                            <div class="contact-icon">📱</div>
+                            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
                             <div>
                                 <h3>Téléphone</h3>
                                 <p>(+243) 0841029246</p>
@@ -1313,7 +1426,7 @@
                         </div>
                         
                         <div class="contact-item">
-                            <div class="contact-icon">📍</div>
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                             <div>
                                 <h3>Adresse</h3>
                                 <p>30 Avenue Mukoko, Quartier Musey, Commune Ngaliema, KINSHASA, RDC</p>
@@ -1321,7 +1434,7 @@
                         </div>
                         
                         <div class="contact-item">
-                            <div class="contact-icon">💼</div>
+                            <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
                             <div>
                                 <h3>LinkedIn</h3>
                                 <p><a href="https://www.linkedin.com/in/gad-bulangongo-347153310" style="color: var(--orange); text-decoration: none;">linkedin.com/in/gad-bulangongo-347153310</a></p>
@@ -1334,7 +1447,7 @@
                         <input type="email" id="email" placeholder="Votre email" required>
                         <input type="text" id="subject" placeholder="Sujet" required>
                         <textarea id="message" placeholder="Votre message" required></textarea>
-                        <button type="submit" class="btn">Envoyer le message</button>
+                        <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Envoyer le message</button>
                     </form>
                 </div>
             </div>
@@ -1345,9 +1458,10 @@
     <footer>
         <div class="container">
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/gad-bulangongo-347153310" class="social-link" target="_blank">in</a>
-                <a href="https://wa.me/243841029246" class="social-link" target="_blank">💬</a>
-                <a href="mailto:gadbulangongo11@gmail.com" class="social-link">✉</a>
+                <a href="https://www.linkedin.com/in/gad-bulangongo-347153310" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://wa.me/243841029246" class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:gadbulangongo11@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
             </div>
             <p>&copy; 2025 Gad Bulangongo Mikudi. Tous droits réservés.</p>
         </div>
