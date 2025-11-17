@@ -213,6 +213,17 @@
             margin-bottom: 40px;
             color: var(--white);
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            line-height: 1.7;
+        }
+        
+        .professional-description {
+            background-color: rgba(17, 34, 64, 0.8);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 4px solid var(--orange);
+            font-size: 18px;
+            line-height: 1.7;
         }
         
         .btn {
@@ -231,64 +242,6 @@
         .btn:hover {
             background-color: var(--white);
             transform: translateY(-3px);
-        }
-        
-        /* About Section */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-        
-        .about-photo {
-            text-align: center;
-        }
-        
-        .profile-photo {
-            width: 100%;
-            max-width: 300px;
-            height: 300px;
-            margin: 0 auto 20px;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 4px solid var(--orange);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .profile-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .personal-info {
-            text-align: left;
-            padding: 20px;
-            background-color: var(--light-blue);
-            border-radius: 10px;
-        }
-        
-        .personal-info h3 {
-            color: var(--orange);
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .personal-info p {
-            margin-bottom: 10px;
-            color: var(--light-gray);
-        }
-        
-        .about-text {
-            padding: 20px;
-            background-color: var(--light-blue);
-            border-radius: 10px;
-        }
-        
-        .about-text p {
-            margin-bottom: 20px;
-            color: var(--light-gray);
         }
         
         /* Skills Section */
@@ -364,34 +317,205 @@
             margin-bottom: 20px;
         }
         
-        /* Galerie de photos */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
+        /* Galerie de photos carrée */
+        .gallery-container {
             margin-top: 20px;
         }
         
-        .gallery-item {
+        .gallery-title {
+            color: var(--orange);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .compact-gallery {
             position: relative;
-            border-radius: 8px;
+            max-width: 400px;
+            margin: 0 auto;
+            border-radius: 10px;
             overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            background-color: var(--dark-blue);
             aspect-ratio: 1 / 1;
-            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .gallery-slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .gallery-slide.active {
+            display: block;
+        }
+        
+        .gallery-slide:hover {
+            opacity: 0.9;
+        }
+        
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 122, 0, 0.8);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+        
+        .gallery-nav:hover {
+            background-color: var(--orange);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .gallery-prev {
+            left: 15px;
+        }
+        
+        .gallery-next {
+            right: 15px;
+        }
+        
+        .gallery-counter {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 5px 10px;
+            font-size: 14px;
+            z-index: 10;
+        }
+        
+        .gallery-thumbnails {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .thumbnail {
+            width: 60px;
+            height: 60px;
+            border-radius: 5px;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .thumbnail:hover, .thumbnail.active {
+            opacity: 1;
+            border-color: var(--orange);
+        }
+        
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+        
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(255, 122, 0, 0.3);
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            width: 40px;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 122, 0, 0.7);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 24px;
+            transition: background-color 0.3s;
         }
         
-        .gallery-item:hover img {
-            transform: scale(1.05);
+        .lightbox-nav:hover {
+            background-color: var(--orange);
+        }
+        
+        .lightbox-prev {
+            left: 20px;
+        }
+        
+        .lightbox-next {
+            right: 20px;
+        }
+        
+        .lightbox-counter {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+            font-size: 18px;
         }
         
         /* Projects Section */
@@ -592,7 +716,6 @@
                 display: flex;
             }
             
-            .about-grid,
             .contact-container {
                 grid-template-columns: 1fr;
             }
@@ -605,13 +728,38 @@
                 font-size: 20px;
             }
             
-            .profile-photo {
-                width: 200px;
-                height: 200px;
+            .professional-description {
+                font-size: 16px;
+                padding: 20px;
             }
             
-            .gallery {
-                grid-template-columns: 1fr;
+            .compact-gallery {
+                max-width: 100%;
+            }
+            
+            .gallery-nav {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+            
+            .thumbnail {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .lightbox-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+            
+            .lightbox-prev {
+                left: 10px;
+            }
+            
+            .lightbox-next {
+                right: 10px;
             }
             
             .formation-header {
@@ -633,7 +781,6 @@
                 <div class="logo">GBM</div>
                 <ul class="nav-links">
                     <li><a href="#" onclick="showPage('accueil')">Accueil</a></li>
-                    <li><a href="#" onclick="showPage('about')">À propos</a></li>
                     <li><a href="#" onclick="showPage('skills')">Compétences</a></li>
                     <li><a href="#" onclick="showPage('experience')">Expérience</a></li>
                     <li><a href="#" onclick="showPage('formations')">Formations</a></li>
@@ -653,7 +800,6 @@
     <div class="mobile-menu" id="mobileMenu">
         <ul class="mobile-nav-links">
             <li><a href="#" onclick="navigateTo('accueil')">Accueil</a></li>
-            <li><a href="#" onclick="navigateTo('about')">À propos</a></li>
             <li><a href="#" onclick="navigateTo('skills')">Compétences</a></li>
             <li><a href="#" onclick="navigateTo('experience')">Expérience</a></li>
             <li><a href="#" onclick="navigateTo('formations')">Formations</a></li>
@@ -669,35 +815,14 @@
                 <div class="hero-content">
                     <h1>Gad Bulangongo Mikudi</h1>
                     <h2>Analyst Junior Cybersecurity | IT Support Specialist | Ingénieur Réseau | Administrateur Système (Windows server & Linux)</h2>
-                    <p>Professionnel polyvalent en réseaux, systèmes et cyber sécurité, certifié Cisco CCNA, Google IT Support et Google Cyber Security. Expérimenté en configuration d'équipements Cisco, administration de serveurs Windows et Linux (desktop & server), ainsi qu'en support technique utilisateurs (niveau 1 & 2) et sécurisation des infrastructures.</p>
+                    
+                    <div class="professional-description">
+                        Professionnel polyvalent en réseaux, systèmes et cyber sécurité, certifié Cisco CCNA, Google IT Support et Google Cyber Security. Expérimenté en configuration d'équipements Cisco, administration de serveurs Windows et Linux (desktop & server), ainsi qu'en support technique utilisateurs (niveau 1 & 2) et sécurisation des infrastructures.
+                        <br><br>
+                        Compétent dans l'analyse des risques, la détection des menaces (SIEM, IDS), et l'automatisation des tâches de sécurité avec Python. Rigoureux, dynamique et passionné par les technologies réseau, système et sécurité, avec une forte capacité d'adaptation aux environnements techniques exigeants.
+                    </div>
+                    
                     <a href="#" onclick="showPage('contact')" class="btn">Me contacter</a>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Page À propos -->
-    <div id="about" class="page">
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title">À propos de moi</h2>
-                <div class="about-grid">
-                    <div class="about-photo">
-                        <div class="profile-photo">
-                            <img src="profil.jpg" alt="Photo de Gad Bulangongo Mikudi">
-                        </div>
-                    </div>
-                    <div class="personal-info">
-                        <h3>Informations personnelles</h3>
-                        <p><strong>Nationalité:</strong> Congolaise (République démocratique du Congo)</p>
-                        <p><strong>Téléphone:</strong> (+243) 0841029246</p>
-                        <p><strong>Email:</strong> gadbulangongo11@gmail.com</p>
-                        <p><strong>Adresse:</strong> 30 Avenue Mukoko, Quartier Musey, Commune Ngaliema, KINSHASA</p>
-                    </div>
-                </div>
-                <div class="about-text">
-                    <p>Professionnel polyvalent en réseaux, systèmes et cyber sécurité, certifié Cisco CCNA, Google IT Support et Google Cyber Security. Expérimenté en configuration d'équipements Cisco, administration de serveurs Windows et Linux (desktop & server), ainsi qu'en support technique utilisateurs (niveau 1 & 2) et sécurisation des infrastructures.</p>
-                    <p>Compétent dans l'analyse des risques, la détection des menaces (SIEM, IDS), et l'automatisation des tâches de sécurité avec Python. Rigoureux, dynamique et passionné par les technologies réseau, système et sécurité, avec une forte capacité d'adaptation aux environnements techniques exigeants.</p>
                 </div>
             </div>
         </section>
@@ -752,7 +877,7 @@
                             <li>DHCP</li>
                             <li>DNS</li>
                             <li>IPv4/IPv6</li>
-                            <li>WiFi (802.11)</li>
+                            <li>WiFi(802.11)</li>
                         </ul>
                     </div>
                     
@@ -811,19 +936,33 @@
                         gestion des adresses IP, tests et validation réseau, maintenance et support, documentation technique.
                     </p>
                     
-                    <h4>Quelques réalisations :</h4>
-                    <div class="gallery">
-                        <div class="gallery-item">
-                            <img src="Infra.jpg" alt="Installation équipement réseau">
+                    <div class="gallery-container">
+                        <h4 class="gallery-title">Quelques réalisations :</h4>
+                        <div class="compact-gallery" data-gallery="radiocom">
+                            <button class="gallery-nav gallery-prev">&#10094;</button>
+                            <button class="gallery-nav gallery-next">&#10095;</button>
+                            
+                            <img src="Infra.jpg" alt="Installation équipement réseau" class="gallery-slide active" data-index="0">
+                            <img src="Dépannage.jpg" alt="Configuration serveur" class="gallery-slide" data-index="1">
+                            <img src="DépaR.jpg" alt="Tests de validation réseau" class="gallery-slide" data-index="2">
+                            <img src="Test.jpg" alt="Documentation technique" class="gallery-slide" data-index="3">
+                            
+                            <div class="gallery-counter">1/4</div>
                         </div>
-                        <div class="gallery-item">
-                            <img src="Dépannage.jpg" alt="Configuration serveur">
-                        </div>
-                        <div class="gallery-item">
-                            <img src="DépaR.jpg" alt="Tests de validation réseau">
-                        </div>
-                        <div class="gallery-item">
-                            <img src="Test.jpg" alt="Documentation technique">
+                        
+                        <div class="gallery-thumbnails">
+                            <div class="thumbnail active" data-index="0">
+                                <img src="Infra.jpg" alt="Installation équipement réseau">
+                            </div>
+                            <div class="thumbnail" data-index="1">
+                                <img src="Dépannage.jpg" alt="Configuration serveur">
+                            </div>
+                            <div class="thumbnail" data-index="2">
+                                <img src="DépaR.jpg" alt="Tests de validation réseau">
+                            </div>
+                            <div class="thumbnail" data-index="3">
+                                <img src="Test.jpg" alt="Documentation technique">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -838,19 +977,33 @@
                         configuration de routeurs, dépannage, optimisation des réseaux domestiques et Installation des caméras de surveillance.
                     </p>
                     
-                    <h4>Quelques réalisations :</h4>
-                    <div class="gallery">
-                        <div class="gallery-item">
-                            <img src="camera.jpg" alt="Installation caméra de surveillance">
+                    <div class="gallery-container">
+                        <h4 class="gallery-title">Quelques réalisations :</h4>
+                        <div class="compact-gallery" data-gallery="giad-fuchs">
+                            <button class="gallery-nav gallery-prev">&#10094;</button>
+                            <button class="gallery-nav gallery-next">&#10095;</button>
+                            
+                            <img src="camera.jpg" alt="Installation caméra de surveillance" class="gallery-slide active" data-index="0">
+                            <img src="DépanF.jpg" alt="Configuration réseau domestique" class="gallery-slide" data-index="1">
+                            <img src="Optimisation.jpg" alt="Dépannage réseau" class="gallery-slide" data-index="2">
+                            <img src="DOC.jpg" alt="Optimisation réseau" class="gallery-slide" data-index="3">
+                            
+                            <div class="gallery-counter">1/4</div>
                         </div>
-                        <div class="gallery-item">
-                            <img src="DépanF.jpg" alt="Configuration réseau domestique">
-                        </div>
-                        <div class="gallery-item">
-                            <img src="Optimisation.jpg" alt="Dépannage réseau">
-                        </div>
-                        <div class="gallery-item">
-                            <img src="DOC.jpg" alt="Optimisation réseau">
+                        
+                        <div class="gallery-thumbnails">
+                            <div class="thumbnail active" data-index="0">
+                                <img src="camera.jpg" alt="Installation caméra de surveillance">
+                            </div>
+                            <div class="thumbnail" data-index="1">
+                                <img src="DépanF.jpg" alt="Configuration réseau domestique">
+                            </div>
+                            <div class="thumbnail" data-index="2">
+                                <img src="Optimisation.jpg" alt="Dépannage réseau">
+                            </div>
+                            <div class="thumbnail" data-index="3">
+                                <img src="DOC.jpg" alt="Optimisation réseau">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -878,6 +1031,17 @@
                 </div>
             </div>
         </section>
+    </div>
+
+    <!-- Lightbox pour les galeries -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#10094;</button>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">&#10095;</button>
+        <div class="lightbox-content">
+            <img class="lightbox-img" id="lightboxImg" src="" alt="">
+            <div class="lightbox-counter" id="lightboxCounter"></div>
+        </div>
     </div>
 
     <!-- Page Formations -->
@@ -1184,6 +1348,178 @@
                 this.reset();
             });
         }
+
+        // Galerie compacte
+        function initCompactGallery(galleryElement) {
+            const slides = galleryElement.querySelectorAll('.gallery-slide');
+            const prevBtn = galleryElement.querySelector('.gallery-prev');
+            const nextBtn = galleryElement.querySelector('.gallery-next');
+            const counter = galleryElement.querySelector('.gallery-counter');
+            const thumbnails = galleryElement.parentElement.querySelectorAll('.thumbnail');
+            
+            let currentIndex = 0;
+            
+            function showSlide(index) {
+                // Masquer toutes les slides
+                slides.forEach(slide => slide.classList.remove('active'));
+                
+                // Afficher la slide courante
+                slides[index].classList.add('active');
+                
+                // Mettre à jour le compteur
+                counter.textContent = `${index + 1}/${slides.length}`;
+                
+                // Mettre à jour les miniatures
+                thumbnails.forEach(thumb => thumb.classList.remove('active'));
+                thumbnails[index].classList.add('active');
+                
+                currentIndex = index;
+            }
+            
+            function nextSlide() {
+                let newIndex = currentIndex + 1;
+                if (newIndex >= slides.length) {
+                    newIndex = 0;
+                }
+                showSlide(newIndex);
+            }
+            
+            function prevSlide() {
+                let newIndex = currentIndex - 1;
+                if (newIndex < 0) {
+                    newIndex = slides.length - 1;
+                }
+                showSlide(newIndex);
+            }
+            
+            // Événements
+            prevBtn.addEventListener('click', prevSlide);
+            nextBtn.addEventListener('click', nextSlide);
+            
+            // Navigation par miniatures
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', () => {
+                    const index = parseInt(thumb.getAttribute('data-index'));
+                    showSlide(index);
+                });
+            });
+            
+            // Navigation au clavier
+            galleryElement.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') {
+                    nextSlide();
+                } else if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                }
+            });
+            
+            // Auto-play (optionnel)
+            let autoPlayInterval;
+            
+            function startAutoPlay() {
+                autoPlayInterval = setInterval(nextSlide, 5000);
+            }
+            
+            function stopAutoPlay() {
+                clearInterval(autoPlayInterval);
+            }
+            
+            // Démarrer l'auto-play
+            startAutoPlay();
+            
+            // Arrêter l'auto-play au survol
+            galleryElement.addEventListener('mouseenter', stopAutoPlay);
+            galleryElement.addEventListener('mouseleave', startAutoPlay);
+        }
+
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const lightboxPrev = document.getElementById('lightboxPrev');
+        const lightboxNext = document.getElementById('lightboxNext');
+        const lightboxCounter = document.getElementById('lightboxCounter');
+
+        let currentGallery = [];
+        let currentIndex = 0;
+
+        // Ouvrir la lightbox
+        function openLightbox(galleryElement, index) {
+            const slides = galleryElement.querySelectorAll('.gallery-slide');
+            currentGallery = Array.from(slides);
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Fermer la lightbox
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Mettre à jour l'image affichée dans la lightbox
+        function updateLightbox() {
+            if (currentGallery.length > 0) {
+                const currentItem = currentGallery[currentIndex];
+                lightboxImg.src = currentItem.src;
+                lightboxImg.alt = currentItem.alt;
+                lightboxCounter.textContent = `${currentIndex + 1} / ${currentGallery.length}`;
+            }
+        }
+
+        // Image suivante
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % currentGallery.length;
+            updateLightbox();
+        }
+
+        // Image précédente
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+            updateLightbox();
+        }
+
+        // Initialiser toutes les galeries
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.compact-gallery').forEach(gallery => {
+                initCompactGallery(gallery);
+                
+                // Rendre les images cliquables pour ouvrir la lightbox
+                const slides = gallery.querySelectorAll('.gallery-slide');
+                slides.forEach((slide, index) => {
+                    slide.addEventListener('click', () => {
+                        openLightbox(gallery, index);
+                    });
+                });
+            });
+        });
+
+        // Événements pour la lightbox
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', prevImage);
+        lightboxNext.addEventListener('click', nextImage);
+
+        // Fermer la lightbox en cliquant à l'extérieur de l'image
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Navigation au clavier
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.classList.contains('active')) {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowRight') {
+                    nextImage();
+                } else if (e.key === 'ArrowLeft') {
+                    prevImage();
+                }
+            }
+        });
     </script>
 </body>
 </html>
