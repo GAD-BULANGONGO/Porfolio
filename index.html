@@ -177,35 +177,70 @@
             background-color: var(--orange);
         }
         
-        /* Hero Section */
+        /* Hero Section avec nouveau design */
+        
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             background: 
-                linear-gradient(to right, rgba(10, 25, 47, 0.5), rgba(17, 34, 64, 0.5)),
-                url('Arrière.jpg') center/cover no-repeat;
+                linear-gradient(to right, rgba(10, 25, 47, 0.85), rgba(17, 34, 64, 0.9)),
+                url('https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg') center/cover no-repeat;
             position: relative;
         }
-        
+
         .hero-content {
-            max-width: 800px;
+            max-width: 100%;
             position: relative;
             z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
         }
         
-        .hero h1 {
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .profile-image-container {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--orange);
+            box-shadow: 0 0 20px rgba(255, 122, 0, 0.5);
+            margin-bottom: 30px;
+            background-color: var(--light-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .profile-name {
             font-size: 48px;
             margin-bottom: 20px;
             color: var(--white);
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
         
-        .hero h2 {
+        .profile-title {
             font-size: 24px;
             color: var(--orange);
             margin-bottom: 30px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            text-align: center;
+            line-height: 1.4;
         }
         
         .hero p {
@@ -224,6 +259,7 @@
             border-left: 4px solid var(--orange);
             font-size: 18px;
             line-height: 1.7;
+            max-width: 800px;
         }
         
         .btn {
@@ -720,12 +756,17 @@
                 grid-template-columns: 1fr;
             }
             
-            .hero h1 {
+            .profile-name {
                 font-size: 36px;
             }
             
-            .hero h2 {
+            .profile-title {
                 font-size: 20px;
+            }
+            
+            .profile-image-container {
+                width: 180px;
+                height: 180px;
             }
             
             .professional-description {
@@ -771,6 +812,21 @@
                 margin-top: 5px;
             }
         }
+        
+        @media (max-width: 480px) {
+            .profile-name {
+                font-size: 28px;
+            }
+            
+            .profile-title {
+                font-size: 18px;
+            }
+            
+            .profile-image-container {
+                width: 150px;
+                height: 150px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -813,8 +869,16 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1>Gad Bulangongo Mikudi</h1>
-                    <h2>Analyst Junior Cybersecurity | IT Support Specialist | Ingénieur Réseau | Administrateur Système (Windows server & Linux)</h2>
+                    <div class="profile-container">
+                        <h1 class="profile-name">Gad Bulangongo Mikudi</h1>
+                        
+                        <div class="profile-image-container">
+                            <!-- REMPLACEZ "votre-photo.jpg" PAR LE NOM DE VOTRE FICHIER PHOTO -->
+                            <img src="votre-photo.jpg" alt="Photo de profil de Gad Bulangongo Mikudi" class="profile-image">
+                        </div>
+                        
+                        <h2 class="profile-title">Analyst Junior Cybersecurity | IT Support Specialist | Ingénieur Réseau | Administrateur Système (Windows server & Linux)</h2>
+                    </div>
                     
                     <div class="professional-description">
                         Professionnel polyvalent en réseaux, systèmes et cyber sécurité, certifié Cisco CCNA, Google IT Support et Google Cyber Security. Expérimenté en configuration d'équipements Cisco, administration de serveurs Windows et Linux (desktop & server), ainsi qu'en support technique utilisateurs (niveau 1 & 2) et sécurisation des infrastructures.
