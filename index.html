@@ -625,7 +625,7 @@
         /* Projects Section */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 30px;
         }
         
@@ -642,15 +642,16 @@
         }
         
         .project-info {
-            padding: 20px;
+            padding: 25px;
         }
         
         .project-title {
             color: var(--orange);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             word-break: break-word;
             display: flex;
             align-items: center;
+            font-size: 22px;
         }
         
         .project-title i {
@@ -659,18 +660,20 @@
         
         .project-desc {
             color: var(--light-gray);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            line-height: 1.7;
         }
         
         .project-tags {
             display: flex;
             flex-wrap: wrap;
+            margin-bottom: 15px;
         }
         
         .project-tag {
             background-color: rgba(255, 107, 107, 0.2);
             color: var(--orange);
-            padding: 5px 10px;
+            padding: 5px 12px;
             border-radius: 20px;
             font-size: 12px;
             margin-right: 10px;
@@ -682,6 +685,67 @@
         .project-tag i {
             margin-right: 5px;
             font-size: 10px;
+        }
+        
+        .project-features {
+            list-style: none;
+            margin-top: 15px;
+            border-top: 1px solid rgba(255, 122, 0, 0.3);
+            padding-top: 15px;
+        }
+        
+        .project-features li {
+            color: var(--light-gray);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+            font-size: 14px;
+        }
+        
+        .project-features li i {
+            color: var(--orange);
+            margin-right: 10px;
+            font-size: 12px;
+            margin-top: 3px;
+        }
+        
+        .next-phase {
+            background-color: rgba(255, 122, 0, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 3px solid var(--orange);
+        }
+        
+        .next-phase p {
+            color: var(--orange);
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .next-phase p i {
+            margin-right: 8px;
+        }
+        
+        .next-phase ul {
+            list-style: none;
+            padding-left: 25px;
+        }
+        
+        .next-phase ul li {
+            color: var(--light-gray);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+        
+        .next-phase ul li i {
+            color: var(--orange);
+            margin-right: 8px;
+            font-size: 12px;
         }
         
         /* Contact Section */
@@ -898,7 +962,7 @@
             
             /* Optimisations pour la page d'accueil */
             .hero {
-                min-height: 70vh; /* Réduit la hauteur sur mobile */
+                min-height: 70vh;
                 padding: 40px 0;
             }
             
@@ -964,7 +1028,6 @@
                 margin-top: 5px;
             }
             
-            /* Réduction des espacements sur mobile */
             .section {
                 padding: 50px 0;
             }
@@ -974,7 +1037,6 @@
                 margin-bottom: 30px;
             }
             
-            /* Optimisation de l'expérience professionnelle */
             .experience-item {
                 padding: 20px;
                 margin-bottom: 40px;
@@ -984,7 +1046,6 @@
                 font-size: 20px;
             }
             
-            /* Optimisation des formations */
             .formations-container {
                 grid-template-columns: 1fr;
                 gap: 20px;
@@ -994,9 +1055,12 @@
                 padding: 20px;
             }
             
-            /* Afficher le menu d'ancrage rapide sur mobile */
             .quick-nav-mobile {
                 display: flex;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
             }
         }
         
@@ -1018,7 +1082,6 @@
                 padding: 10px;
             }
             
-            /* Réduction supplémentaire des espacements sur très petits écrans */
             .section {
                 padding: 40px 0;
             }
@@ -1216,7 +1279,7 @@
                 <div class="experience-item">
                     <div class="experience-header">
                         <h3 class="experience-title"><i class="fas fa-network-wired"></i> Ingénieur Réseau - RADIOCOM</h3>
-                        <div class="experience-date"><i class="far fa-calendar-alt"></i> 05/2024 - 02/2025</div>
+                        <div class="experience-date"><i class="far fa-calendar-alt"></i> 05/2024 - 03/2025</div>
                     </div>
                     <p class="experience-desc">
                         Analyse des besoins réseau, installation et configuration des équipements réseau (Cisco, HP),
@@ -1260,7 +1323,12 @@
                         <div class="experience-date"><i class="far fa-calendar-alt"></i> 03/2023 à Présent</div>
                     </div>
                     <p class="experience-desc">
-                        Conception et déploiement de solutions réseau adaptées aux environnements résidentiels et professionnels : configuration de routeurs et commutateurs, mise en place de VLANs et optimisation des connexions Internet selon les contraintes locales. Réalisation de projets de sécurité électronique (installation de caméras HikVision et systèmes de contrôle d’accès), intégration de réseaux Wi-Fi mesh pour multi‑bâtiments, et documentation technique détaillée pour assurer la maintenance et la fiabilité des infrastructures. Accompagnement des clients par un support technique mensuel, garantissant la continuité de service et la satisfaction des utilisateurs.
+                        Conseil et audit d'infrastructures réseau pour clients industriels et PME ;<br>
+                        Conception et déploiement de LAN sécurisés (VLAN, QoS, routage, optimisation) ;<br>
+                        Mise en place de sécurité périmétrique (Firewall, ACL, DHCP/DNS, VPN) ;<br>
+                        Installation de systèmes de surveillance HikVision et contrôle d'accès ;<br>
+                        Rédaction de documentation technique et formation des équipes clientes ;<br>
+                        Support technique récurrent : dépannage, optimisation et abonnements mensuels de maintenance.
                     </p>
                     
                     <div class="gallery-container">
@@ -1470,6 +1538,46 @@
             <div class="container">
                 <h2 class="section-title"><i class="fas fa-project-diagram"></i> Mes projets</h2>
                 <div class="projects-grid">
+                    <!-- Nouveau projet Aquakola (ajouté en premier) -->
+                    <div class="project-card">
+                        <div class="project-info">
+                            <h3 class="project-title"><i class="fas fa-water"></i> Modernisation Réseau - Aquakola (Mbanza Ngungu)</h3>
+                            <p class="project-desc">
+                                <strong>🚀 Mission accomplie : Chef de projet technique</strong><br>
+                                Transformation d'un réseau basique en infrastructure professionnelle, fiable et sécurisée pour l'entreprise Aquakola, située dans le village de Kola. Coordination d'une équipe de 4 personnes pour relier 5 bâtiments.
+                            </p>
+                            
+                            <div class="project-tags">
+                                <span class="project-tag"><i class="fas fa-network-wired"></i> VLAN</span>
+                                <span class="project-tag"><i class="fas fa-wifi"></i> UniFi</span>
+                                <span class="project-tag"><i class="fas fa-video"></i> HikVision</span>
+                                <span class="project-tag"><i class="fas fa-database"></i> Odoo</span>
+                                <span class="project-tag"><i class="fas fa-broadcast-tower"></i> Ponts radio</span>
+                            </div>
+                            
+                            <ul class="project-features">
+                                <li><i class="fas fa-check-circle"></i> Câblage structuré SFTP Cat6 - 3 bâtiments</li>
+                                <li><i class="fas fa-check-circle"></i> Ponts radio Ubiquiti Nanostation M5 - 2 bâtiments distants</li>
+                                <li><i class="fas fa-check-circle"></i> Rack principal 32U + racks secondaires 4U</li>
+                                <li><i class="fas fa-check-circle"></i> VLANs par bâtiment et service</li>
+                                <li><i class="fas fa-check-circle"></i> Wi-Fi professionnel UniFi (AC Mesh & Mesh Pro)</li>
+                                <li><i class="fas fa-check-circle"></i> 18 caméras IP Hikvision + NVR 32 canaux</li>
+                                <li><i class="fas fa-check-circle"></i> Déploiement local ERP Odoo</li>
+                            </ul>
+                            
+                            <div class="next-phase">
+                                <p><i class="fas fa-arrow-right"></i> Phase 2 - Janvier 2025 :</p>
+                                <ul>
+                                    <li><i class="fas fa-shield-alt"></i> Pare-feu FortiGate</li>
+                                    <li><i class="fas fa-lock"></i> VPN SSL pour accès distant</li>
+                                    <li><i class="fas fa-satellite"></i> Connexion Starlink (backup/load balancing)</li>
+                                    <li><i class="fas fa-chart-line"></i> Supervision renforcée</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projet Union Européenne -->
                     <div class="project-card">
                         <div class="project-info">
                             <h3 class="project-title"><i class="fas fa-network-wired"></i> Réseau pour l'Union Européenne à Kinshasa</h3>
@@ -1483,6 +1591,7 @@
                         </div>
                     </div>
                     
+                    <!-- Projet Centre de Formation -->
                     <div class="project-card">
                         <div class="project-info">
                             <h3 class="project-title"><i class="fas fa-sitemap"></i> Mise en place d'un réseau local</h3>
@@ -1495,6 +1604,7 @@
                         </div>
                     </div>
                     
+                    <!-- Projet Laboratoire -->
                     <div class="project-card">
                         <div class="project-info">
                             <h3 class="project-title"><i class="fas fa-flask"></i> Laboratoire personnel</h3>
