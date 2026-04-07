@@ -3,9 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Gad Bulangongo Mikudi</title>
+    <title>Portfolio - Gad Bulangongo Mikudi | Cybersecurity Analyst & Network Engineer</title>
+    
+    <!-- Meta descriptions pour le SEO -->
+    <meta name="description" content="Portfolio de Gad Bulangongo Mikudi - Cybersecurity Analyst spécialisé en sécurité réseau, administration système et ingénierie réseau. Certifié Cisco CCNA, Google IT Support et Cyber Security.">
+    <meta name="keywords" content="cybersécurité, réseau, administration système, Cisco CCNA, SIEM, firewall, Windows Server, Linux, IT support, ingénieur réseau, Kinshasa, RDC">
+    <meta name="author" content="Gad Bulangongo Mikudi">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph pour les réseaux sociaux -->
+    <meta property="og:title" content="Gad Bulangongo Mikudi - Cybersecurity Analyst & Network Engineer">
+    <meta property="og:description" content="Portfolio professionnel - Expert en cybersécurité, réseaux et systèmes informatiques. Certifications Cisco CCNA, Google IT Support et Cyber Security.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://votresite.com">
+    <meta property="og:image" content="https://votresite.com/votre-photo.jpg">
+    <meta property="og:locale" content="fr_FR">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gad Bulangongo Mikudi - Cybersecurity Analyst">
+    <meta name="twitter:description" content="Portfolio professionnel spécialisé en cybersécurité, réseaux et systèmes.">
+    <meta name="twitter:image" content="https://votresite.com/votre-photo.jpg">
+    
+    <!-- Favicon et autres -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="canonical" href="https://votresite.com">
+    
+    <!-- Meta descriptions pour chaque section -->
+    <meta name="description:accueil" content="Page d'accueil du portfolio de Gad Bulangongo Mikudi, cybersecurity analyst et network engineer basé à Kinshasa. Présentation professionnelle et compétences en cybersécurité.">
+    <meta name="description:competences" content="Compétences techniques de Gad Bulangongo Mikudi en cybersécurité, réseaux, systèmes informatiques, support IT et administration Windows/Linux. Certifications Cisco et Google.">
+    <meta name="description:experience" content="Expérience professionnelle de Gad Bulangongo Mikudi en cybersécurité SOC, ingénierie réseau, et administration système. Projets réalisés pour RADIOCOM, FUCHS TECHNOLOGY et Orange Digital Center.">
+    <meta name="description:formations" content="Formations et certifications de Gad Bulangongo Mikudi en cybersécurité, réseaux et systèmes. Cisco CCNA, Google Cyber Security, IT Support, Windows Server et administration Linux.">
+    <meta name="description:projets" content="Projets techniques réalisés par Gad Bulangongo Mikudi : modernisation réseau Aquakola, infrastructure Union Européenne, déploiement LAN et laboratoire personnel.">
+    <meta name="description:contact" content="Coordonnées et formulaire de contact pour Gad Bulangongo Mikudi, cybersecurity analyst à Kinshasa. Email, téléphone, adresse et LinkedIn pour collaborations professionnelles.">
+    
     <!-- Font Awesome pour les icônes -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      // Configuration de base
+      gtag('config', 'G-VHY2F9CJGF', {
+        page_title: 'Portfolio Gad Bulangongo Mikudi',
+        page_location: window.location.href,
+        content_group1: 'Portfolio Professionnel',
+        send_page_view: true
+      });
+      
+      // Suivi personnalisé pour les sections
+      function trackSectionView(sectionName) {
+        gtag('event', 'page_view', {
+          page_title: sectionName + ' - Portfolio Gad Bulangongo',
+          page_location: window.location.href + '#' + sectionName,
+          content_group1: 'Portfolio Professionnel'
+        });
+      }
+      
+      // Suivi des clics sur les liens de contact
+      function trackContactClick(method) {
+        gtag('event', 'contact_click', {
+          method: method,
+          content_group1: 'Portfolio Professionnel'
+        });
+      }
+      
+      // Suivi des téléchargements (si applicable)
+      function trackDownload(filename) {
+        gtag('event', 'download', {
+          filename: filename,
+          content_group1: 'Portfolio Professionnel'
+        });
+      }
+      
+      // Suivi des soumissions de formulaire
+      function trackFormSubmission(formName) {
+        gtag('event', 'form_submit', {
+          form_name: formName,
+          content_group1: 'Portfolio Professionnel'
+        });
+      }
+      
+      // Suivi des interactions avec la galerie
+      function trackGalleryInteraction(action, galleryName) {
+        gtag('event', 'gallery_interaction', {
+          action: action,
+          gallery_name: galleryName,
+          content_group1: 'Portfolio Professionnel'
+        });
+      }
+      
+      // Suivi du scroll
+      let scrollTracked = false;
+      window.addEventListener('scroll', function() {
+        if (!scrollTracked && window.scrollY > 300) {
+          gtag('event', 'scroll', {
+            percent_scrolled: 50,
+            content_group1: 'Portfolio Professionnel'
+          });
+          scrollTracked = true;
+        }
+      });
+      
+      // Suivi du temps sur la page
+      let timeOnPage = 0;
+      setInterval(function() {
+        timeOnPage += 30;
+        if (timeOnPage >= 120) { // 2 minutes
+          gtag('event', 'engagement', {
+            time_on_page: timeOnPage,
+            content_group1: 'Portfolio Professionnel'
+          });
+          timeOnPage = 0;
+        }
+      }, 30000); // Toutes les 30 secondes
+    </script>
+    
     <style>
         :root {
             --dark-blue: #0a192f;
@@ -803,7 +920,7 @@
         /* Formations Section */
         .formations-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
             gap: 30px;
         }
         
@@ -813,6 +930,10 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
+            height: fit-content;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
         }
         
         .formation-card:hover {
@@ -824,18 +945,25 @@
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         
         .formation-title {
             color: var(--orange);
-            font-size: 20px;
+            font-size: 18px;
             margin-bottom: 5px;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
+            line-height: 1.3;
+            flex: 1;
+            min-width: 250px;
         }
         
         .formation-title i {
             margin-right: 10px;
+            margin-top: 2px;
+            flex-shrink: 0;
         }
         
         .formation-institution {
@@ -844,30 +972,41 @@
             margin-bottom: 10px;
             display: flex;
             align-items: center;
+            font-size: 14px;
+            line-height: 1.3;
         }
         
         .formation-institution i {
             margin-right: 8px;
             font-size: 14px;
+            flex-shrink: 0;
         }
         
         .formation-date {
             color: var(--orange);
             font-weight: bold;
-            font-size: 14px;
+            font-size: 13px;
             white-space: nowrap;
-            margin-left: 15px;
             display: flex;
             align-items: center;
+            flex-shrink: 0;
         }
         
         .formation-date i {
             margin-right: 5px;
+            font-size: 12px;
         }
         
         .formation-desc {
             color: var(--light-gray);
             margin-bottom: 15px;
+            font-size: 14px;
+            line-height: 1.5;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
         
         .formation-badge {
@@ -877,13 +1016,115 @@
             color: var(--orange);
             padding: 5px 10px;
             border-radius: 20px;
-            font-size: 12px;
+            font-size: 11px;
             margin-right: 10px;
             margin-bottom: 10px;
+            white-space: nowrap;
         }
         
         .formation-badge i {
             margin-right: 5px;
+            font-size: 10px;
+        }
+        
+        /* Bouton retour en haut */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--orange);
+            color: var(--dark-blue);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            box-shadow: 0 4px 12px rgba(255, 122, 0, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 122, 0, 0.4);
+        }
+        
+        /* Animations au scroll */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.5s ease;
+        }
+        
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* Animation pour les sections */
+        .section {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--orange), transparent);
+            transition: left 0.8s ease;
+        }
+        
+        .section.animated::before {
+            left: 100%;
         }
         
         /* Footer */
@@ -1160,14 +1401,14 @@
                         
                         <div class="profile-image-container">
                             <!-- REMPLACEZ "votre-photo.jpg" PAR LE NOM DE VOTRE FICHIER PHOTO -->
-                            <img src="votre-photo.jpg" alt="Photo de profil de Gad Bulangongo Mikudi" class="profile-image">
+                            <img src="votre-photo.jpg" alt="Photo de profil professionnelle de Gad Bulangongo Mikudi - Cybersecurity Analyst et Network Engineer à Kinshasa" class="profile-image" loading="lazy">
                         </div>
                         
                         <h2 class="profile-title"><i class="fas fa-shield-alt"></i> Cybersecurity Analyst | IT Support Specialist | Network Engineer | System Administrator (Windows Server & Linux)</h2>
                     </div>
                     
                     <div class="professional-description">
-                        <i class="fas fa-user-tie"></i> Professionnel polyvalent en réseaux, systèmes et cyber sécurité, certifié Cisco CCNA, Google IT Support et Google Cyber Security. Expérimenté en configuration d'équipements Cisco, administration de serveurs Windows et Linux (desktop & server), ainsi qu'en support technique utilisateurs (niveau 1 & 2) et sécurisation des infrastructures.
+                        <i class="fas fa-user-tie"></i> Professionnel polyvalent en réseaux, systèmes et cyber sécurité, certifié Cisco CCNA, Google IT Support et Google Cyber Security. Expérimenté en configuration d'équipements Cisco, administration de serveurs Windows et Linux (desktop & server), ainsi qu'en support technique utilisateurs (niveau 1, 2 & 3) et sécurisation des infrastructures.
                         <br><br>
                         <i class="fas fa-search"></i> Compétent dans l'analyse des risques, la détection des menaces (SIEM, IDS), et l'automatisation des tâches de sécurité avec Python. Rigoureux, dynamique et passionné par les technologies réseau, système et sécurité, avec une forte capacité d'adaptation aux environnements techniques exigeants.
                     </div>
@@ -1204,7 +1445,7 @@
                     <div class="skill-category">
                         <h3><i class="fas fa-headset"></i> Support IT</h3>
                         <ul class="skill-list">
-                            <li><i class="fas fa-users"></i> Assistance utilisateurs N1 & N2</li>
+                            <li><i class="fas fa-users"></i> Assistance utilisateurs N1, N2, N3</li>
                             <li><i class="fas fa-tools"></i> Dépannage hardware/software</li>
                             <li><i class="fas fa-ticket-alt"></i> Gestion des tickets</li>
                             <li><i class="fas fa-wrench"></i> Maintenance préventive</li>
@@ -1276,6 +1517,18 @@
             <div class="container">
                 <h2 class="section-title"><i class="fas fa-briefcase"></i> Mon expérience professionnelle</h2>
                 
+                <!-- NOUVEAU : Cybersecurity Analyst SOC - Orange-Digital Center -->
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="experience-title"><i class="fas fa-shield-alt"></i> Cybersecurity Analyst (SOC) – Orange-Digital Center, Kinshasa</h3>
+                        <div class="experience-date"><i class="far fa-calendar-alt"></i> 01/2026 à nos jours</div>
+                    </div>
+                    <p class="experience-desc">
+                        • Surveillance continue des journaux et événements de sécurité via SIEM afin de détecter les menaces (brute force, mouvements latéraux, activités anormales) ;<br>
+                        • Analyse, qualification et priorisation des alertes de sécurité (triage SOC) avec escalade des incidents critiques.
+                    </p>
+                </div>
+                
                 <div class="experience-item">
                     <div class="experience-header">
                         <h3 class="experience-title"><i class="fas fa-network-wired"></i> Ingénieur Réseau - RADIOCOM</h3>
@@ -1292,26 +1545,26 @@
                             <button class="gallery-nav gallery-prev">&#10094;</button>
                             <button class="gallery-nav gallery-next">&#10095;</button>
                             
-                            <img src="Infra.jpg" alt="Installation équipement réseau" class="gallery-slide active" data-index="0">
-                            <img src="Dépannage.jpg" alt="Configuration serveur" class="gallery-slide" data-index="1">
-                            <img src="DépaR.jpg" alt="Tests de validation réseau" class="gallery-slide" data-index="2">
-                            <img src="Test.jpg" alt="Documentation technique" class="gallery-slide" data-index="3">
+                            <img src="Infra.jpg" alt="Installation et configuration d'équipements réseau Cisco pour l'entreprise RADIOCOM - Switchs et routeurs en rack serveur" class="gallery-slide active" data-index="0" loading="lazy">
+                            <img src="Dépannage.jpg" alt="Configuration de serveur et dépannage réseau professionnel par Gad Bulangongo Mikudi" class="gallery-slide" data-index="1" loading="lazy">
+                            <img src="DépaR.jpg" alt="Tests de validation réseau et vérification de la connectivité des équipements Cisco" class="gallery-slide" data-index="2" loading="lazy">
+                            <img src="Test.jpg" alt="Documentation technique des configurations réseau et schémas d'architecture" class="gallery-slide" data-index="3" loading="lazy">
                             
                             <div class="gallery-counter">1/4</div>
                         </div>
                         
                         <div class="gallery-thumbnails">
                             <div class="thumbnail active" data-index="0">
-                                <img src="Infra.jpg" alt="Installation équipement réseau">
+                                <img src="Infra.jpg" alt="Installation d'équipements réseau Cisco - Projet RADIOCOM" loading="lazy">
                             </div>
                             <div class="thumbnail" data-index="1">
-                                <img src="Dépannage.jpg" alt="Configuration serveur">
+                                <img src="Dépannage.jpg" alt="Configuration serveur professionnel - Gad Bulangongo Mikudi" loading="lazy">
                             </div>
                             <div class="thumbnail" data-index="2">
-                                <img src="DépaR.jpg" alt="Tests de validation réseau">
+                                <img src="DépaR.jpg" alt="Tests de validation réseau Cisco" loading="lazy">
                             </div>
                             <div class="thumbnail" data-index="3">
-                                <img src="Test.jpg" alt="Documentation technique">
+                                <img src="Test.jpg" alt="Documentation technique réseau" loading="lazy">
                             </div>
                         </div>
                     </div>
@@ -1337,26 +1590,26 @@
                             <button class="gallery-nav gallery-prev">&#10094;</button>
                             <button class="gallery-nav gallery-next">&#10095;</button>
                             
-                            <img src="camera.jpg" alt="Installation caméra de surveillance" class="gallery-slide active" data-index="0">
-                            <img src="DépanF.jpg" alt="Configuration réseau domestique" class="gallery-slide" data-index="1">
-                            <img src="Optimisation.jpg" alt="Dépannage réseau" class="gallery-slide" data-index="2">
-                            <img src="DOC.jpg" alt="Optimisation réseau" class="gallery-slide" data-index="3">
+                            <img src="camera.jpg" alt="Installation de caméras de surveillance HikVision pour FUCHS TECHNOLOGY - Système de sécurité professionnel" class="gallery-slide active" data-index="0" loading="lazy">
+                            <img src="DépanF.jpg" alt="Configuration réseau domestique et installation WiFi pour client particulier" class="gallery-slide" data-index="1" loading="lazy">
+                            <img src="Optimisation.jpg" alt="Dépannage réseau et optimisation des performances pour entreprise" class="gallery-slide" data-index="2" loading="lazy">
+                            <img src="DOC.jpg" alt="Optimisation réseau et documentation technique pour FUCHS TECHNOLOGY" class="gallery-slide" data-index="3" loading="lazy">
                             
                             <div class="gallery-counter">1/4</div>
                         </div>
                         
                         <div class="gallery-thumbnails">
                             <div class="thumbnail active" data-index="0">
-                                <img src="camera.jpg" alt="Installation caméra de surveillance">
+                                <img src="camera.jpg" alt="Installation caméras HikVision - Sécurité FUCHS TECHNOLOGY" loading="lazy">
                             </div>
                             <div class="thumbnail" data-index="1">
-                                <img src="DépanF.jpg" alt="Configuration réseau domestique">
+                                <img src="DépanF.jpg" alt="Configuration réseau domestique professionnel" loading="lazy">
                             </div>
                             <div class="thumbnail" data-index="2">
-                                <img src="Optimisation.jpg" alt="Dépannage réseau">
+                                <img src="Optimisation.jpg" alt="Dépannage et optimisation réseau" loading="lazy">
                             </div>
                             <div class="thumbnail" data-index="3">
-                                <img src="DOC.jpg" alt="Optimisation réseau">
+                                <img src="DOC.jpg" alt="Documentation technique réseau" loading="lazy">
                             </div>
                         </div>
                     </div>
@@ -1393,7 +1646,7 @@
         <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#10094;</button>
         <button class="lightbox-nav lightbox-next" id="lightboxNext">&#10095;</button>
         <div class="lightbox-content">
-            <img class="lightbox-img" id="lightboxImg" src="" alt="">
+            <img class="lightbox-img" id="lightboxImg" src="" alt="Image agrandie de la galerie - Portfolio Gad Bulangongo Mikudi">
             <div class="lightbox-counter" id="lightboxCounter"></div>
         </div>
     </div>
@@ -1404,6 +1657,19 @@
             <div class="container">
                 <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Mes formations</h2>
                 <div class="formations-container">
+                    <!-- NOUVELLE FORMATION : Cybastion Cisco Networking Academy -->
+                    <div class="formation-card">
+                        <div class="formation-header">
+                            <div>
+                                <h3 class="formation-title"><i class="fas fa-chalkboard-user"></i> Formation des formateurs – Cybersécurité (Niveau 2)</h3>
+                                <p class="formation-institution"><i class="fas fa-university"></i> Cybastion Cisco Networking Academy</p>
+                            </div>
+                            <div class="formation-date"><i class="far fa-calendar-alt"></i> Jan 2026 – Fév 2026</div>
+                        </div>
+                        <p class="formation-desc">Programme national organisé pour le compte du Ministère de la Jeunesse et Éveil Patriotique – RDC ; formation approfondie en cybersécurité niveau formateur.</p>
+                        <div class="formation-badge"><i class="fas fa-award"></i> Cisco Cybersecurity</div>
+                    </div>
+                    
                     <!-- Formations Orange RDC -->
                     <div class="formation-card">
                         <div class="formation-header">
@@ -1632,7 +1898,7 @@
                             <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                             <div>
                                 <h3>Email</h3>
-                                <p>gadbulangongo11@gmail.com</p>
+                                <p><a href="mailto:gadbulangongo11@gmail.com" onclick="trackContactClick('email'); return true;"></a>gadbulangongo11@gmail.com</a></p>
                             </div>
                         </div>
                         
@@ -1640,7 +1906,7 @@
                             <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
                             <div>
                                 <h3>Téléphone</h3>
-                                <p>(+243) 0841029246</p>
+                                <p><a href="tel:+2430841029246" onclick="trackContactClick('phone'); return true;">(+243) 0841029246</a></p>
                             </div>
                         </div>
                         
@@ -1656,7 +1922,7 @@
                             <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
                             <div>
                                 <h3>LinkedIn</h3>
-                                <p><a href="https://www.linkedin.com/in/gad-bulangongo-347153310" style="color: var(--orange); text-decoration: none;">linkedin.com/in/gad-bulangongo-347153310</a></p>
+                                <p><a href="https://www.linkedin.com/in/gad-bulangongo-347153310" onclick="trackContactClick('linkedin'); return true;" style="color: var(--orange); text-decoration: none;">linkedin.com/in/gad-bulangongo-347153310</a></p>
                             </div>
                         </div>
                     </div>
@@ -1677,14 +1943,19 @@
     <footer>
         <div class="container">
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/gad-bulangongo-347153310" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://wa.me/243841029246" class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                <a href="mailto:gadbulangongo11@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/gad-bulangongo-347153310" class="social-link" target="_blank" onclick="trackContactClick('linkedin_footer'); return true;"><i class="fab fa-linkedin"></i></a>
+                <a href="https://wa.me/243841029246" class="social-link" target="_blank" onclick="trackContactClick('whatsapp'); return true;"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:gadbulangongo11@gmail.com" class="social-link" onclick="trackContactClick('email_footer'); return true;"><i class="fas fa-envelope"></i></a>
                 <a href="#" class="social-link"><i class="fab fa-github"></i></a>
             </div>
             <p>&copy; 2025 Gad Bulangongo Mikudi. Tous droits réservés.</p>
         </div>
     </footer>
+
+    <!-- Bouton retour en haut -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut de la page">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script>
         // Fonction pour afficher une page et masquer les autres
@@ -1696,6 +1967,9 @@
             
             // Afficher la page demandée
             document.getElementById(pageId).classList.add('active');
+            
+            // Tracking Analytics de la section
+            trackSectionView(pageId);
             
             // Scroll vers le haut
             window.scrollTo(0, 0);
@@ -1728,6 +2002,9 @@
         if (contactForm) {
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
+                
+                // Tracking Analytics du formulaire
+                trackFormSubmission('contact_form');
                 
                 // Récupération des valeurs du formulaire
                 const name = document.getElementById('name').value;
@@ -1916,6 +2193,116 @@
                     prevImage();
                 }
             }
+        });
+
+        // Bouton retour en haut et animations au scroll
+        const backToTopButton = document.getElementById('backToTop');
+
+        // Fonction pour gérer l'affichage du bouton retour en haut
+        function toggleBackToTopButton() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        }
+
+        // Fonction pour remonter en haut
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Événement pour le bouton retour en haut
+        backToTopButton.addEventListener('click', scrollToTop);
+
+        // Événement pour le scroll
+        window.addEventListener('scroll', () => {
+            toggleBackToTopButton();
+
+            // Gérer les animations au scroll
+            const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .scale-in');
+
+            animatedElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementBottom = element.getBoundingClientRect().bottom;
+                const windowHeight = window.innerHeight;
+
+                if (elementTop < windowHeight - 100 && elementBottom > 0) {
+                    element.classList.add('visible');
+                }
+            });
+
+            // Animation pour les sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (sectionTop < windowHeight - 100) {
+                    section.classList.add('animated');
+                }
+            });
+        });
+
+        // Initialiser les animations au chargement de la page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ajouter les classes d'animation aux éléments
+            const skillCategories = document.querySelectorAll('.skill-category');
+            skillCategories.forEach((category, index) => {
+                category.classList.add('fade-in-up');
+                category.style.transitionDelay = `${index * 0.1}s`;
+            });
+
+            const experienceItems = document.querySelectorAll('.experience-item');
+            experienceItems.forEach((item, index) => {
+                if (index % 2 === 0) {
+                    item.classList.add('fade-in-left');
+                } else {
+                    item.classList.add('fade-in-right');
+                }
+                item.style.transitionDelay = `${index * 0.1}s`;
+            });
+
+            const formationCards = document.querySelectorAll('.formation-card');
+            formationCards.forEach((card, index) => {
+                card.classList.add('scale-in');
+                card.style.transitionDelay = `${index * 0.1}s`;
+            });
+
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach((card, index) => {
+                card.classList.add('fade-in-up');
+                card.style.transitionDelay = `${index * 0.1}s`;
+            });
+
+            // Déclencher les animations pour les éléments visibles au chargement
+            setTimeout(() => {
+                const visibleElements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .scale-in');
+                visibleElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+
+                    if (elementTop < windowHeight - 100) {
+                        element.classList.add('visible');
+                    }
+                });
+            }, 100);
+
+            // Initialiser les galeries existantes
+            document.querySelectorAll('.compact-gallery').forEach(gallery => {
+                initCompactGallery(gallery);
+
+                // Rendre les images cliquables pour ouvrir la lightbox
+                const slides = gallery.querySelectorAll('.gallery-slide');
+                slides.forEach((slide, index) => {
+                    slide.addEventListener('click', () => {
+                        openLightbox(gallery, index);
+                    });
+                });
+            });
         });
     </script>
 </body>

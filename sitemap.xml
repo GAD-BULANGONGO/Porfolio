@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    
+    <!-- Page d'accueil -->
+    <url>
+        <loc>https://votresite.com/</loc>
+        <lastmod>2026-04-07</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://votresite.com/votre-photo.jpg</image:loc>
+            <image:title>Photo de profil de Gad Bulangongo Mikudi</image:title>
+            <image:caption>Gad Bulangongo Mikudi - Cybersecurity Analyst</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Page Compétences -->
+    <url>
+        <loc>https://votresite.com/#skills</loc>
+        <lastmod>2026-04-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Page Expérience -->
+    <url>
+        <loc>https://votresite.com/#experience</loc>
+        <lastmod>2026-04-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://votresite.com/Infra.jpg</image:loc>
+            <image:title>Installation équipement réseau Cisco</image:title>
+            <image:caption>Configuration de switchs et routeurs pour l'entreprise RADIOCOM</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://votresite.com/camera.jpg</image:loc>
+            <image:title>Installation caméra de surveillance</image:title>
+            <image:caption>Mise en place de système de sécurité pour FUCHS TECHNOLOGY</image:caption>
+        </image:image>
+    </url>
+    
+    <!-- Page Formations -->
+    <url>
+        <loc>https://votresite.com/#formations</loc>
+        <lastmod>2026-04-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Page Projets -->
+    <url>
+        <loc>https://votresite.com/#projects</loc>
+        <lastmod>2026-04-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Page Contact -->
+    <url>
+        <loc>https://votresite.com/#contact</loc>
+        <lastmod>2026-04-07</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+</urlset>
